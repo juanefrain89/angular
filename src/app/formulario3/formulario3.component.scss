@@ -1,0 +1,363 @@
+.padre, form{
+    width: 100%;
+    height: auto;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+}
+.completado{
+    color: aqua;
+}
+.completado{
+    display: none;
+}
+.alerta{
+    color: red;
+    display: block;
+   font-size: 15px;
+    margin-left: auto;
+}
+
+
+
+.opciones{
+    display: flex;
+    grid-template-rows: auto;
+    grid-template-columns: 30% 23% 23% 23%;
+width: 100%;
+gap: 5px;
+margin-bottom: 20px;
+margin-top: 20px;
+
+}
+
+.pnone{
+    text-align: start !important;
+}
+
+
+
+
+
+
+
+
+.opciones > div, .opciones > p{
+    width: 23%;
+}
+
+.pnone{
+    width: 30% !important;
+}
+
+.opciones > p{
+background-color: none;
+   margin-bottom: 15px;
+   text-align: center;
+    font-size: 15px;
+    word-wrap: break-word; /* Alternativa moderna: overflow-wrap: break-word; */
+  word-break: break-word; /* Maneja cómo dividir palabras largas */
+  white-space: normal; /* Permite que el texto se envuelva en líneas */
+  overflow: hidden; /* Opcional: Esconde cualquier texto que exceda el contenedor */
+  text-overflow: ellipsis; /* Opcional: Agrega "..." si el texto se corta */
+
+}
+
+
+
+
+
+
+
+
+
+
+.alerta2{
+    margin-top: -5px;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+body, html{
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.contenedor{
+    width: 70%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    
+}
+
+.contenedor > div{
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 2px 2px #0000000a;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 30px;
+   padding: 30px;
+   box-sizing: border-box;
+}
+
+
+
+input{
+    border: none;
+    border-bottom: 1px solid rgb(156, 155, 155);
+    width: 80%;
+
+}
+
+input:focus{
+    border-bottom: 1px solid gainsboro;
+    outline: none;
+}
+
+h1{
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.caras{
+    width: 100%;
+    height: auto;
+   
+    padding: 10px;
+   
+}
+
+.caras > .div{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 30% 23% 23% 23%;
+width: 100%;
+
+}
+.radio{
+    width: 30px;
+    height: 25px;
+    margin-left: -5px;
+    margin-right: 20px;
+}
+
+.manual{
+    margin: 0%;
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    margin-bottom: 20px;
+}
+.text-primary{
+    color:rgb(248, 186, 71);
+    cursor: pointer;
+}
+
+.activo1{
+    color: red;
+}
+.activo2{
+    color: yellow;
+}
+
+.activo{
+    color: green;
+    cursor: pointer;
+}
+input{
+    cursor: pointer;
+}
+
+
+.ll{
+    margin-top: 20px;
+}
+.ms-1{
+    color: grey;
+}
+
+.d-flex.align-items-center {
+    display: flex;
+    cursor: pointer;
+    align-items: start;
+   
+    margin-top: -5PX;
+  }
+  .centrar{
+    justify-content: center;
+    align-items: start;
+}
+  
+  .d-flex.align-items-center input[type="radio"] {
+    margin: 0;
+    margin-right: 10px;
+    width: 10%;
+    opacity: 0;
+    position: absolute;
+    height: 30px;
+  }
+  
+button{
+    cursor: pointer;
+}
+
+  .d-flex.align-items-center label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .d-flex.align-items-center label.selected-icon {
+    color: green;
+  }
+  
+  .d-flex.align-items-center label.selected-icon fa-icon {
+    color: green !important;
+  }
+  
+  .d-flex.align-items-center label fa-icon {
+    margin-right: 5px;
+  }
+.manual > p{
+    color: gray;
+}
+
+.div > input{
+
+    border: solid black 1px !important;
+}
+
+.intructor{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+  
+}
+
+.intructor > input{
+    width: 10px !important;
+    height: 10px !important;
+    margin-right: 20px;
+}
+
+.intructor > p{
+    color: grey;
+}
+
+.dos{
+    padding-bottom: 0px;
+    height: auto !important;
+}
+
+.div >p{
+    box-sizing: border-box;
+    color: grey;
+margin-bottom: 30px;
+}
+
+.div > input{
+    height: 20px !important;
+}
+
+.pp{
+    height: 100%;
+   margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  
+}
+
+.contenedor-boton{
+    background-color:      gainsboro !important;
+    cursor: pointer;
+    border-radius: 0%;
+    box-shadow:none !important ;
+    display: flex;
+    justify-content:flex-start;
+    padding: 0 !important;
+    margin: 0%;
+ 
+   
+
+}
+
+.contenedor-boton > button{
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+    font-weight: bold;
+}
+
+
+.flex > p{
+    color: grey;
+    margin-bottom: 10px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   height: 100%;
+   justify-content: center;
+}
+
+.flex > input{
+    width: 20px;
+    height: 20px;
+   
+}
+
+@media screen and (max-width: 500px) {
+    .padre{
+justify-content:center;
+padding-left: 50px;
+margin-left: 0%;
+padding-left: 0;
+}
+.caras > .div{
+    grid-template-columns: 33% 33% 33%;
+}
+.div > p{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-bottom: 10px;
+}
+.div > input{
+    margin-bottom: 10px;
+}
+
+.div > input{
+    margin-top: 5px;
+    margin-bottom: 10px !important;
+}
+
+.contenedor{
+    width: 70%;
+}
+
+.pnone{
+    display: none;
+}
+
+.opciones {
+    gap: 10px;
+}
+
+}

@@ -1,0 +1,756 @@
+<div class="padre">
+ 
+  <div class="contenedor">     
+      <div class="campo-nombre">
+          <h1>Nombre</h1>
+          <h1 class="h1-nombre"></h1>
+          <input type="text" [(ngModel)]="uno" placeholder="tu respuesta">
+         
+          <h1 [ngClass]="camposFaltantes.includes('uno') ? 'alerta' : 'completado'">rellena este campo</h1>
+      </div>
+      
+      <div class="campo-puesto">
+          <h1>Puesto</h1>
+          <input type="text" [(ngModel)]="dos" placeholder="tu respuesta">
+          <h1 [ngClass]="camposFaltantes.includes('dos') ? 'alerta' : 'completado'">rellena este campo</h1>
+      </div>
+      
+      <div class="campo-puesto dos">
+          <h1>Responde alas siguientes preguntas</h1>
+          <div class="caras">
+            <div class="opciones">
+              <p class="pnone">Criterios</p>
+              <p>Desacuerdo</p>
+              <p>de acuerdo</p>
+              <p class="tres">Totalmente de acuerdo</p>
+              
+              </div>
+            <div class="div">  
+              <p>Se me aclaró a qué equipo pertenezco</p>
+            
+              <div class="d-flex align-items-center centrar">
+                <input 
+                (ngModelChange)="cambiar($event, 'tres')"
+                  type="radio" 
+                  id="team1" 
+                  name="team" 
+                  value="1" 
+                  [(ngModel)]="tres"
+                >
+                <label for="team1" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-frown']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo1': tres == 1, 'text-primary': tres != 1}"
+                  ></fa-icon>
+                </label>
+              </div>
+            
+              <div class="d-flex align-items-center centrar">
+                <input 
+                (ngModelChange)="cambiar($event, 'tres')"
+                  type="radio" 
+                  id="team2" 
+                  name="team" 
+                  value="2" 
+                  [(ngModel)]="tres"
+                >
+                <label for="team2" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-meh']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo2': tres == 2, 'text-primary': tres != 2}"
+                  ></fa-icon>
+                </label>
+              </div>
+            
+              <div class="d-flex align-items-center centrar">
+                <input 
+                (ngModelChange)="cambiar($event, 'tres')"
+                  type="radio" 
+                  id="team3" 
+                  name="team" 
+                  value="3" 
+                  [(ngModel)]="tres"
+                >
+                <label for="team3" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-smile']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo': tres == 3, 'text-primary': tres != 3}"
+                  ></fa-icon>
+                </label>
+              </div>
+            
+              <h1 [ngClass]="camposFaltantes.includes('tres') ? 'alerta' : 'completado'">Rellena este campo</h1>
+            </div>
+            
+
+
+              <div class="div">  
+                <p>se aclaró a quién debo reportar mi trabajo</p>
+                <div class="d-flex align-items-center centrar">
+                  <input type="radio" id="reporting4" name="reporting" value="1" [(ngModel)]="cuatro"   (ngModelChange)="cambiar($event, 'cuatro')">
+                  <label for="reporting4" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-frown']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo': cuatro == 1, 'text-primary': cuatro != 1}"
+                    ></fa-icon>
+                  </label>
+                </div>
+                
+                <div class="d-flex align-items-center centrar">
+                  <input type="radio" id="reporting5" name="reporting" value="2"  (ngModelChange)="cambiar($event, 'cuatro')" [(ngModel)]="cuatro">
+                  <label for="reporting5" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-smile']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo2': cuatro == 2, 'text-primary': cuatro != 2}"
+                    ></fa-icon>
+                  </label>
+                </div>
+                
+                <div class="d-flex align-items-center centrar">
+                  <input type="radio" id="reporting3" name="reporting" value="3"  (ngModelChange)="cambiar($event, 'cuatro')" [(ngModel)]="cuatro">
+                  <label for="reporting3" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-smile']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo': cuatro == 3, 'text-primary': cuatro != 3}"
+                    ></fa-icon>
+                  </label>
+                </div>
+
+              
+                <h1 [ngClass]="camposFaltantes.includes('cuatro') ? 'alerta' : 'completado'">rellena este campo</h1>
+              
+            </div>
+              
+
+
+
+          </div>
+      </div>
+
+      
+
+ 
+      <div class="campo-puesto dos">
+        <h1>Selecciona la percepción que has generado de tu jefe</h1>
+        
+        <div class="caras">
+          <div class="opciones">
+            <p class="pnone">Criterios</p>
+            <p>Desacuerdo</p>
+            <p>de acuerdo</p>
+            <p class="tres">Totalmente de acuerdo</p>
+            
+            </div>
+          <div class="div">
+            <p>Preparado</p>
+            <div class="d-flex align-items-center centrar">
+              <input 
+              (ngModelChange)="cambiar($event, 'cinco')"
+                type="radio" 
+                id="prepared1" 
+                name="prepared" 
+                value="1" 
+                [(ngModel)]="cinco"
+              >
+              <label for="prepared1" class="ms-2">
+                <fa-icon 
+                [icon]="['fas', 'face-frown']"
+                  size="2x" 
+                  [fixedWidth]="true" 
+                  [ngClass]="{'activo1': cinco == 1, 'text-primary': cinco != 1}"
+                ></fa-icon>
+               
+              </label>
+            </div>
+      
+            <div class="d-flex align-items-center centrar">
+              <input 
+              (ngModelChange)="cambiar($event, 'cinco')"
+                type="radio" 
+                id="prepared2" 
+                name="prepared" 
+                value="2" 
+                [(ngModel)]="cinco"
+              >
+              <label for="prepared2" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-meh']" 
+                  size="2x" 
+                  [fixedWidth]="true" 
+                  [ngClass]="{'activo2': cinco == 2, 'text-primary': cinco != 2}"
+                ></fa-icon>
+               
+              </label>
+            </div>
+      
+            <div class="d-flex align-items-center centrar">
+              <input 
+              (ngModelChange)="cambiar($event, 'cinco')"
+                type="radio" 
+                id="prepared3" 
+                name="prepared" 
+                value="3" 
+                [(ngModel)]="cinco"
+              >
+              <label for="prepared3" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-smile']" 
+                  size="2x" 
+                  [fixedWidth]="true" 
+                  [ngClass]="{'activo': cinco == 3, 'text-primary': cinco != 3}"
+                ></fa-icon>
+               
+              </label>
+            </div>
+           
+          </div>
+          <h1 [ngClass]="camposFaltantes.includes('cinco') ? 'alerta' : 'completado'">rellena este campo</h1>
+      
+         
+          <div class="div">
+            <p>Amigable</p>
+            <div class="d-flex align-items-center centrar">
+              <input 
+              (ngModelChange)="cambiar($event, 'cinco')"
+                type="radio" 
+                id="friendly1" 
+                name="friendly" 
+                value="1" 
+                [(ngModel)]="seis"
+              >
+              <label for="friendly1" class="ms-2">
+                <fa-icon 
+                [icon]="['fas', 'face-frown']"
+                  size="2x" 
+                  [fixedWidth]="true" 
+                  [ngClass]="{'activo1': seis == 1, 'text-primary': seis != 1}"
+                ></fa-icon>
+               
+              </label>
+            </div>
+      
+            <div class="d-flex align-items-center centrar">
+              <input 
+              (ngModelChange)="cambiar($event, 'seis')"
+                type="radio" 
+                id="friendly2" 
+                name="friendly" 
+                value="2" 
+                [(ngModel)]="seis"
+              >
+              <label for="friendly2" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-meh']" 
+                  size="2x" 
+                  [fixedWidth]="true" 
+                  [ngClass]="{'activo2': seis == 2, 'text-primary': seis != 2}"
+                ></fa-icon>
+               
+              </label>
+            </div>
+      
+            <div class="d-flex align-items-center centrar">
+              <input 
+              (ngModelChange)="cambiar($event, 'seis')"
+                type="radio" 
+                id="friendly3" 
+                name="friendly" 
+                value="3" 
+                [(ngModel)]="seis"
+              >
+              <label for="friendly3" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-smile']" 
+                  size="2x" 
+                  [fixedWidth]="true" 
+                  [ngClass]="{'activo': seis == 3, 'text-primary': seis != 3}"
+                ></fa-icon>
+               
+              </label>
+            </div>
+          </div>
+
+
+
+
+          <h1 [ngClass]="camposFaltantes.includes('seis') ? 'alerta' : 'completado'">rellena este campo</h1>
+      
+          <!-- Repite para "consistente", "alentador", "claro", "profesional", y "empático" -->
+           <div class="div">
+<p>Consistente</p>
+<div class="d-flex align-items-center centrar">
+<input 
+(ngModelChange)="cambiar($event, 'siete')"
+  type="radio" 
+  id="consistent1" 
+  name="consistent" 
+  value="1" 
+  [(ngModel)]="siete"
+>
+<label for="consistent1" class="ms-2">
+  <fa-icon 
+  [icon]="['fas', 'face-frown']"
+    size="2x" 
+    [fixedWidth]="true" 
+    [ngClass]="{'activo1': siete == 1, 'text-primary': siete != 1}"
+  ></fa-icon>
+  
+</label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+<input 
+(ngModelChange)="cambiar($event, 'siete')"
+  type="radio" 
+  id="consistent2" 
+  name="consistent" 
+  value="2" 
+  [(ngModel)]="siete"
+>
+<label for="consistent2" class="ms-2">
+  <fa-icon 
+    [icon]="['fas', 'face-meh']" 
+    size="2x" 
+    [fixedWidth]="true" 
+    [ngClass]="{'activo2': siete == 2, 'text-primary': siete != 2}"
+  ></fa-icon>
+ 
+</label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+<input 
+(ngModelChange)="cambiar($event, 'siete')"
+  type="radio" 
+  id="consistent3" 
+  name="consistent" 
+  value="3" 
+  [(ngModel)]="siete"
+>
+<label for="consistent3" class="ms-2">
+  <fa-icon 
+    [icon]="['fas', 'face-smile']" 
+    size="2x" 
+    [fixedWidth]="true" 
+    [ngClass]="{'activo': siete == 3, 'text-primary': siete != 3}"
+  ></fa-icon>
+ 
+</label>
+</div>
+</div>
+<h1 [ngClass]="camposFaltantes.includes('siete') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+
+
+
+<div class="div">
+<p>Alentador</p>
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'ocho')"
+    type="radio" 
+    id="encouraging1" 
+    name="encouraging" 
+    value="1" 
+    [(ngModel)]="ocho"
+  >
+  <label for="encouraging1" class="ms-2">
+    <fa-icon 
+    [icon]="['fas', 'face-frown']"
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo1': ocho == 1, 'text-primary': ocho != 1}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'ocho')"
+    type="radio" 
+    id="encouraging2" 
+    name="encouraging" 
+    value="2" 
+    [(ngModel)]="ocho"
+  >
+  <label for="encouraging2" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-meh']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo2': ocho == 2, 'text-primary': ocho != 2}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'ocho')"
+    type="radio" 
+    id="encouraging3" 
+    name="encouraging" 
+    value="3" 
+    [(ngModel)]="ocho"
+  >
+  <label for="encouraging3" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-smile']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo': ocho == 3, 'text-primary': ocho != 3}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+</div>
+<h1 [ngClass]="camposFaltantes.includes('ocho') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+
+
+
+
+<div class="div">
+<p>Claro</p>
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'nueve')"
+    type="radio" 
+    id="clear1" 
+    name="clear" 
+    value="1" 
+    [(ngModel)]="nueve"
+  >
+  <label for="clear1" class="ms-2">
+    <fa-icon 
+    [icon]="['fas', 'face-frown']"
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo1': nueve == 1, 'text-primary': nueve != 1}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'nueve')"
+    type="radio" 
+    id="clear2" 
+    name="clear" 
+    value="2" 
+    [(ngModel)]="nueve"
+  >
+  <label for="clear2" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-meh']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo2': nueve == 2, 'text-primary': nueve != 2}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'nueve')"
+    type="radio" 
+    id="clear3" 
+    name="clear" 
+    value="3" 
+    [(ngModel)]="nueve"
+  >
+  <label for="clear3" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-smile']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo': nueve == 3, 'text-primary': nueve != 3}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+</div>
+<h1 [ngClass]="camposFaltantes.includes('nueve') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+<div class="div">
+<p>Profesional</p>
+<div class="d-flex align-items-center centrar">
+  <input
+  (ngModelChange)="cambiar($event, 'diez')" 
+    type="radio" 
+    id="professional1" 
+    name="professional" 
+    value="1" 
+    [(ngModel)]="diez"
+  >
+  <label for="professional1" class="ms-2">
+    <fa-icon 
+    [icon]="['fas', 'face-frown']"
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo1': diez == 1, 'text-primary': diez != 1}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'diez')" 
+    type="radio" 
+    id="professional2" 
+    name="professional" 
+    value="2" 
+    [(ngModel)]="diez"
+  >
+  <label for="professional2" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-meh']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo2': diez == 2, 'text-primary': diez != 2}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'diez')" 
+    type="radio" 
+    id="professional3" 
+    name="professional" 
+    value="3" 
+    [(ngModel)]="diez"
+  >
+  <label for="professional3" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-smile']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo': diez == 3, 'text-primary': diez != 3}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+</div>
+
+<h1 [ngClass]="camposFaltantes.includes('diez') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+
+<div class="div">
+<p>Empático</p>
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'once')" 
+    type="radio" 
+    id="empathetic1" 
+    name="empathetic" 
+    value="1" 
+    [(ngModel)]="once"
+  >
+  <label for="empathetic1" class="ms-2">
+    <fa-icon 
+    [icon]="['fas', 'face-frown']"
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo1': once == 1, 'text-primary': once != 1}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'once')" 
+    type="radio" 
+    id="empathetic2" 
+    name="empathetic" 
+    value="2" 
+    [(ngModel)]="once"
+  >
+  <label for="empathetic2" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-meh']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo2': once == 2, 'text-primary': once != 2}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+<div class="d-flex align-items-center centrar">
+  <input 
+  (ngModelChange)="cambiar($event, 'once')" 
+    type="radio" 
+    id="empathetic3" 
+    name="empathetic" 
+    value="3" 
+    [(ngModel)]="once"
+  >
+  <label for="empathetic3" class="ms-2">
+    <fa-icon 
+      [icon]="['fas', 'face-smile']" 
+      size="2x" 
+      [fixedWidth]="true" 
+      [ngClass]="{'activo': once == 3, 'text-primary': once != 3}"
+    ></fa-icon>
+    <span class="ms-1"></span>
+  </label>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<h1 [ngClass]="camposFaltantes.includes('once') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+      
+
+      <div class="campo-puesto">
+        <h1>Estoy trabajando actualmente con mi manual de puesto</h1>
+      
+        <div class="d-flex align-items-center manual">
+          <input   (ngModelChange)="cambiar($event, 'doce')"  class="radio" type="radio" id="manual1" name="manual" value="1" [(ngModel)]="doce">
+          <label for="manual1" class="ms-2">
+            <fa-icon 
+            [icon]="['fas', 'face-frown']"
+              size="2x" 
+              [fixedWidth]="true" 
+              [ngClass]="{'activo1': doce == 1, 'text-primary': doce != 1}"
+            ></fa-icon>
+          </label>
+          <p class="ms-2">Desacuerdo</p>
+        </div>
+      
+        <div class="d-flex align-items-center manual">
+          <input class="radio" type="radio" id="manual2" name="manual" value="2" [(ngModel)]="doce"   (ngModelChange)="cambiar($event, 'doce')" >
+          <label for="manual2" class="ms-2">
+            <fa-icon 
+              [icon]="['fas', 'face-meh']" 
+              size="2x" 
+              [fixedWidth]="true" 
+              [ngClass]="{'activo': doce == 2, 'text-primary': doce != 2}"
+            ></fa-icon>
+          </label>
+          <p class="ms-2">De acuerdo</p>
+        </div>
+      
+        <div class="d-flex align-items-center manual">
+          <input class="radio" type="radio" id="manual3" name="manual" value="3" [(ngModel)]="doce"   (ngModelChange)="cambiar($event, 'doce')" >
+          <label for="manual3" class="ms-2">
+            <fa-icon 
+              [icon]="['fas', 'face-smile']" 
+              size="2x" 
+              [fixedWidth]="true" 
+              [ngClass]="{'activo': doce == 3, 'text-primary': doce != 3}"
+            ></fa-icon>
+          </label>
+          <p class="ms-2">Totalmente de acuerdo</p>
+        </div>
+
+                <h1 [ngClass]="camposFaltantes.includes('cuatro') ? 'alerta' : 'completado'">rellena este campo</h1>
+      </div>
+      
+
+      <div class="campo-puesto">
+        <h1>Me han dejado trabajando solo en alguna de mis actividades</h1>
+      
+        <div class="d-flex align-items-center manual">
+          <input class="radio" type="radio" id="working-alone1" name="working-alone" value="1" [(ngModel)]="trece"   (ngModelChange)="cambiar($event, 'trece')" >
+          <label for="working-alone1" class="ms-2">
+            <fa-icon 
+            [icon]="['fas', 'face-frown']"
+              size="2x" 
+              [fixedWidth]="true" 
+              [ngClass]="{'activo1': trece == 1, 'text-primary': trece != 1}"
+            ></fa-icon>
+          </label>
+          <p class="ms-2">Desacuerdo</p>
+        </div>
+      
+        <div class="d-flex align-items-center manual">
+          <input class="radio" type="radio" id="working-alone2" name="working-alone" value="2" [(ngModel)]="trece"   (ngModelChange)="cambiar($event, 'trece')" >
+          <label for="working-alone2" class="ms-2">
+            <fa-icon 
+              [icon]="['fas', 'face-meh']" 
+              size="2x" 
+              [fixedWidth]="true" 
+              [ngClass]="{'activo2': trece == 2, 'text-primary': trece != 2}"
+            ></fa-icon>
+          </label>
+          <p class="ms-2">De acuerdo</p>
+        </div>
+      
+        <div class="d-flex align-items-center manual">
+          <input class="radio" type="radio" id="working-alone3" name="working-alone" value="3" [(ngModel)]="trece" (ngModelChange)="cambiar($event, 'trece')">
+          <label for="working-alone3" class="ms-2">
+            <fa-icon 
+              [icon]="['fas', 'face-smile']" 
+              size="2x" 
+              [fixedWidth]="true" 
+              [ngClass]="{'activo': trece == 3, 'text-primary': trece != 3}"
+            ></fa-icon>
+          </label>
+          <p class="ms-2">Totalmente de acuerdo</p>
+        </div>
+        <h1 [ngClass]="camposFaltantes.includes('trece') ? 'alerta' : 'completado'">rellena este campo</h1>
+        
+      </div>
+      
+
+
+
+
+
+
+
+      <div class="campo-puesto">
+        <h1>Menciona el nombre de tu jefe</h1>
+        <input type="text" placeholder="tu respuesta"    [(ngModel)]="catorce">
+    </div>
+      <div class="campo-puesto">
+          <h1>Hay algo que nos sugieras para mejorar la experiencia de las primeras semanas en la empresa</h1>
+          <input [(ngModel)]="quince" type="text" placeholder="tu respuesta">
+      </div>
+      
+
+
+      <div class="contenedor-boton">
+        <button (click)="enviar()">Enviar</button>
+      </div>
+  </div>
+</div>
