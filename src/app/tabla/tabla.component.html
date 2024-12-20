@@ -1,0 +1,77 @@
+<div class="padre-padre">
+
+
+  <div class="formularios">
+    <button class="formulario1" (click)="optiones('1')">
+      Proceso de seleccion
+    </button>
+    <button class="formulario1">
+      <a href=""></a>
+    </button>
+    <button class="formulario1">
+      <a href=""></a>
+    </button>
+  </div>
+
+    <h1 class="title">Proceso Seleccion</h1>
+    
+    
+    <div class="inputs">
+        <input type="text" placeholder="Buscar Persona" [(ngModel)]="nombre" (ngModelChange)="filtraciones($event)">
+        <input type="text" placeholder="filtrar por fecha"  >
+        <input type="text" placeholder="filtrar por departamento" [(ngModel)]="area" (ngModelChange)="filtraciones($event)">
+        <input type="text" placeholder="filtrar por puesto"  [(ngModel)]="puesto" (ngModelChange)="filtraciones($event)">
+    </div>
+    <div class="padre">
+    
+        <div class="contenedor">
+           
+                <table>
+                    <tbody> 
+                    <tr>
+                      
+                        <td class="titulos">
+    <p>Fecha</p>
+    
+                        </td>
+                        <td class="titulos"><p>Nombre</p></td>
+                        <td class="titulos"><p>Departamento</p></td>
+                        <td class="titulos"><p>Puesto</p></td>
+                      
+                    </tr>
+                  
+    
+    
+    
+    
+    
+        <tr *ngFor="let persona of all">
+          <td>
+            <div><p>{{ persona.fecha }}</p></div>
+          </td>
+          <td>
+            <div><p>{{ persona.nombre }}</p></div>
+          </td>
+          <td>
+            <div><p>{{ persona.departamento }}</p></div>
+          </td>
+          <td>
+            <div><p>{{ persona.puesto }}</p></div>
+          </td>
+        </tr>
+    
+    </tbody>
+    
+                  
+                </table>
+           
+           
+           
+        
+        </div>
+   
+    </div>
+
+
+    </div>
+    <app-formulario class="pl" *ngIf="formulario == 1"></app-formulario>

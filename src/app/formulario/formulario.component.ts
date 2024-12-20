@@ -4,10 +4,13 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 import { faFaceFrown } from '@fortawesome/free-solid-svg-icons';
 import { faFaceMeh } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.scss'
+  styleUrl: './formulario.component.scss',
+  
+  
 })
 
 
@@ -31,16 +34,25 @@ dieciseis:any=""
 diecisiete:any=0
 dieciocho:any=0
 diecinueve:any=0
-constructor(private servicio: GoodService,  private libreria: FaIconLibrary){
+constructor(private servicio: GoodService,  private libreria: FaIconLibrary, private toastr: ToastrService){
   this.libreria.addIcons(faFaceSmile)
   this.libreria.addIcons(faFaceFrown);
   this.libreria.addIcons(faFaceMeh)
 }
 camposFaltantes: string[] = [];
+alertap = false
+aceptar(){
+  window.location.reload()
+ 
+  this.alertap= false
 
+}
+
+
+seleccion = 1
 
 enviar(): void {
-  
+
   let campos={
     uno: this.uno,
     dos:this.dos,
@@ -72,16 +84,21 @@ this.camposFaltantes=[]
 
   if (this.camposFaltantes.length > 0) {
     alert(`Faltan los siguientes campos por llenar: ${this.camposFaltantes.join(', ')}`);
+    this.alertap = true
+    
+  
   } else {
     console.log('Bien');
     console.log(campos);
 
     this.servicio.mandar(campos).subscribe(
       (datos) => {
+        this.alertap = true
         console.log('Respuesta del servidor:', datos);
       },
       (error) => {
         console.log('Error al enviar los datos:', error);
+        
       }
     );
   }

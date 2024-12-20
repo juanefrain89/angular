@@ -1,4 +1,10 @@
-<div class="padre">
+
+
+
+
+
+
+<div *ngIf="seleccion == 1" class="padre">
  
   <div class="contenedor">     
       <div class="campo-nombre">
@@ -736,7 +742,15 @@
 
 
 
-
+<div class="alertap" [ngStyle]="{ 'display': alertap ? 'flex' : 'none' }">
+  <div class="info">
+    <h1>         
+    Registro exitoso
+  </h1>
+  </div>
+  <div class="acep">  <button (click)="aceptar()"> Aceptar</button></div>
+ 
+</div>
 
       <div class="campo-puesto">
         <h1>Menciona el nombre de tu jefe</h1>
@@ -747,10 +761,12 @@
           <input [(ngModel)]="quince" type="text" placeholder="tu respuesta">
       </div>
       
-
+<h1>{{total}}</h1>
 
       <div class="contenedor-boton">
         <button (click)="enviar()">Enviar</button>
       </div>
   </div>
 </div>
+
+<app-tabla *ngIf="seleccion == 2"></app-tabla>
