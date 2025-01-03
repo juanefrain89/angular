@@ -1,23 +1,73 @@
 .padre{
     width: 100%;
     height:100vh;
-    display: flex;
+  
     justify-content: center;
     align-items: center;
-    background-color: #cddee0!important;
+   
+}
+
+.padre, .padre-padre{
+    background-color: #e7e5e5!important;
+}
+
+.tablas{
+  
+    padding-left: 10px;
+background-color: #fff;
+margin-top: 20px;
+}
+
+.tt{
+    display: flex;
+}
+
+.tabla1{
+    margin-right: 10px;
+
 }
 
 
+.normal{
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.activo{
+    font-size: 20px;
+    cursor: pointer;
+    border-bottom:  1px solid blue;
+    color: blue;
+}
+
+.activo{
+
+}
+
 .formulario1{
-width: 130px;
-height: 35px;
+width: 170px !important;
+min-height: 40px;
+height:auto;
 margin-right: 20px;
+    line-height: normal;  
+    vertical-align: middle;
+    background-color: #1677ff;   
+    color: #ffffff;                
+    border: none;                 
+    border-radius: 4px;          
+    padding:  2px 10px 2px 10px !important;
+    box-sizing: content-box;
+    font-size: 16px;             
+    cursor: pointer;             /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para hover */
+  
 }
 
 .formularios{
     width: 100%;
-    height: 50px;
-    background-color: #007bff;
+    height: auto;
+    padding: 10px;
+    background-color: #fff;
 }
 
 
@@ -31,7 +81,7 @@ body, html{
 .padre-padre{
     width: 100%;
     height: 100vh;
-    background-color:#cddee0;
+   
     margin: 0;
     padding-top: 20px;
 }
@@ -57,6 +107,11 @@ table{
     border-radius: 20px;
     margin-left: -20px;
     cursor: pointer;
+   
+}
+
+tr:hover{
+    background-color: #F2F2F2;
 
 }
 
@@ -64,21 +119,31 @@ table{
     margin-left: -20px;
 }
 
+.titulo{
+    font-size: 25px;
+}
+
 td{
     cursor: pointer;
 }
 
+.nn{
+    background-color: rgb(250, 250, 250);
+}
 
 .inputs > input{
     background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border: 1px solid rgb(153, 153, 153) !important;
+    border-radius: 2px;
     box-sizing: border-box;
     gap: 10px;
-    height: 40px;
+    height: 37px;
     padding: 7px 10px;
     width: 100%;
+    border: 1px solid #f3f7f8;
+    box-shadow: 0 3px 8px #5d737e1a;
     margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 .inputs > input:hover , .inputs > input:focus{
@@ -94,12 +159,15 @@ div >a {
     font-size: 15px;
 }
 
-.contenedor{
-    width: 80%;
+.contenedor{   
+    width: 100%;
     height: 90%;
     background-color: #fff;
-    border-color: gray;
+    border: 1px solid #f3f7f8;
+    border-top: 1px solid gray;
+    box-shadow: 0 3px 8px #5d737e1a;
     border-radius: 5px;
+    border-radius: 8px;
     overflow-y: scroll;
 }
 table{
@@ -141,11 +209,12 @@ td > div > p{
 
 
 .inputs{
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     gap: 5px;
+    padding: 0 20px 0 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -161,3 +230,4 @@ td > div > p{
     border-radius: 8px; 
     overflow-y: scroll;
 }
+

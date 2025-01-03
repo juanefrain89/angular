@@ -2,7 +2,7 @@
 .padre{
     width: 100%;
     height: auto;
-    background-color: gainsboro;
+    background-color: #f0f4f9;
     display: flex;
     justify-content: center;
 }
@@ -18,9 +18,8 @@ body, html{
 }
 
 
-
 .contenedor{
-    width: 70%;
+    width: 90%;
     height: auto;
     margin-top: 20px;
     border-radius: 5px;   
@@ -202,9 +201,14 @@ input:focus{
     outline: none;
 }
 
+
+.titulos{
+    font-weight: 500 !important;
+}
+
 h1{
     font-size: 20px;
-    font-weight: 100;
+    font-weight: 100 ;
     margin-bottom: 20px;
 }
 
@@ -274,7 +278,7 @@ margin-bottom: 30px;
 }
 
 .contenedor-boton{
-    background-color:      gainsboro !important;
+    background-color:      #f0f4f9 !important;
     cursor: pointer;
     border-radius: 0%;
     box-shadow:none !important ;
@@ -291,14 +295,14 @@ margin-bottom: 30px;
     border-radius: 10px;
     height: 40px;
     width: 150px;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 .contenedor-boton > button{
     cursor: pointer;
 }
 
 .info > h1{
-    font-size: 40px;
+    font-size: 40px !important;
     color: rgb(0, 0, 0) !important;
 }
 
@@ -438,6 +442,30 @@ margin-bottom: 30px;
     border: 1px solid #218838; /* Verde más oscuro para el borde */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+
+
+.nombre2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nombre2 >p {
+    align-self: self-start;
+    color: #636363;
+}
+
+.nombre2 > .titulos{
+    font-size: 30px !important;
+}
+
+
+
 
 @media screen and (max-width: 500px) {
  .opciones > p{

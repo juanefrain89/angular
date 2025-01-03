@@ -51,6 +51,12 @@ aceptar(){
 
 seleccion = 1
 
+
+
+
+
+
+
 enviar(): void {
 
   let campos={
@@ -504,6 +510,7 @@ else if(pregunta == "catorce"){
 }
 
 
+
 console.log("valor3",this.valor3, "valor4", this.valor4 , "valor5",this.valor5, "valor6", this.valor6,       "valor7", this.valor7,"valor8" ,this.valor8,"valor9" ,this.valor9,"valor10" ,this.valor10, "valor11",this.valor11, "valor12",this.valor12, "valor13",this.valor13) ;
 
 this.total = (this.valor3+this.valor4+this.valor5+this.valor6 +this.valor7+this.valor8 + this.valor9 + this.valor10 +this.valor11
@@ -523,6 +530,7 @@ this.total = (this.valor3+this.valor4+this.valor5+this.valor6 +this.valor7+this.
 
 mandar(){
 }
+
 
 ngOnInit(): void {
 }

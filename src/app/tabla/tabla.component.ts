@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tabla',
   standalone: false,
@@ -13,10 +13,57 @@ export class TablaComponent {
   puesto: string =""
   area: string = ""
  
+constructor(private controller: Router){
+
+}
 
 
+handleusuario(id : any){
+  console.log("njdfyuvskmjdk");
+  
+  this.controller.navigate([`usuarios/${id}`])
+}
 
+activo = 1
+
+handleactivo(numero : any){
+  this.activo =  numero
+}
+
+fecha: any =""
 formulario = 0
+
+isModalVisible = false; 
+modal2 = false
+modal3 = false
+dia : any=""
+
+handlefecha(){
+  this.dia = parseInt( this.fecha.split("-")[2])
+  console.log(typeof this.dia);
+}
+
+
+
+abrirmodal3(): void{
+  this.modal3= true
+}
+abrirmodal2():void{
+  this.modal2 = true
+}
+abrirModal(): void {
+  this.formulario = 1;
+  this.isModalVisible = true;
+}
+
+// Cierra el modal y configura el formulario en 0
+cerrarModal(): void {
+  this.formulario = 0;
+  this.modal2 = false
+  this.modal3 = false
+  this.isModalVisible = false;
+}
+
 
 optiones(evento : any){
   console.log(evento);
@@ -47,7 +94,7 @@ this.formulario = evento
     { fecha: "20/06/2019", nombre: "Beatriz Sánchez", departamento: "finanzas", puesto: "auditor" }
   ];
 
-  
+  fechaa = this.personas[1].fecha.split("/")[0]
 
 
 
@@ -61,32 +108,27 @@ filtrar_area:any[]=[]
 
 
 
+
 filtraciones(evento: string) {
+  console.log(this.fecha);
   
-  if (this.nombre.trim() === "" && this.puesto.trim() === "" && this.area ==="") {
+  if (this.nombre.trim() === "" && this.puesto.trim() === "" && this.area ==="" && this.fecha=="" ) {
     this.all = this.personas;
   } else {
    
     this.filtrar_nombre = this.personas.filter(persona => {
       const nombrecampo = persona.nombre.toLowerCase().includes(this.nombre.toLowerCase().trim());
+      const fe= persona.fecha.split("/")[0] == this.dia 
       const puestocampo = persona.puesto.toLowerCase().includes(this.puesto.toLowerCase().trim());
       const areacampo = persona.departamento.toLowerCase().includes(this.area.toLowerCase().trim())
-      return nombrecampo && puestocampo && areacampo;
+      return nombrecampo && puestocampo && areacampo && fe ;
     });
 
+    
     this.all = [...this.filtrar_nombre];
   }
 console.log(evento);
 
   console.log(this.all); 
 }
-
-
-
-
-
-
-
-
-
 }

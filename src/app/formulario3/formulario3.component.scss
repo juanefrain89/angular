@@ -1,7 +1,7 @@
 .padre, form{
     width: 100%;
     height: auto;
-    background-color: gainsboro;
+    background-color: #f0f4f9;
     display: flex;
     justify-content: center;
 }
@@ -19,6 +19,22 @@
 }
 
 
+.nombre2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nombre2 >p {
+    align-self: self-start;
+    color: #969696;
+}
+
+.nombre2 > .titulos{
+    font-size: 30px !important;
+
+}
 
 .opciones{
     display: flex;
@@ -89,7 +105,7 @@ body, html{
 }
 
 .contenedor{
-    width: 70%;
+    width: 90%;
     height: auto;
     margin-top: 20px;
     border-radius: 5px;
@@ -123,7 +139,7 @@ input:focus{
 
 h1{
     font-size: 20px;
-    font-weight: 100;
+    font-weight: 500;
     margin-bottom: 20px;
 }
 

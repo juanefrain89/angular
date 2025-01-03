@@ -6,23 +6,27 @@
 
 <div *ngIf="seleccion == 1" class="padre">
  
-  <div class="contenedor">     
+  <div class="contenedor">    
+    <div class="campo-nombre nombre2">
+      <h1 class="titulos">Proceso de seleccion</h1>
+      <p>Agradecemos que respondas a todas las preguntas con el fin  de mejorar nuestros procesos y tu experiencia en esta nueva etapa</p>
+    </div> 
       <div class="campo-nombre">
-          <h1>Nombre</h1>
-          <h1 class="h1-nombre"></h1>
+          <h1 class="titulos">Nombre</h1>
+          <h1 class="h1-nombre titulos"></h1>
           <input type="text" [(ngModel)]="uno" placeholder="tu respuesta">
          
-          <h1 [ngClass]="camposFaltantes.includes('uno') ? 'alerta' : 'completado'">rellena este campo</h1>
+          <h1 class="titulos" [ngClass]="camposFaltantes.includes('uno') ? 'alerta' : 'completado'">rellena este campo</h1>
       </div>
       
       <div class="campo-puesto">
-          <h1>Puesto</h1>
+          <h1 class="titulos">Puesto</h1>
           <input type="text" [(ngModel)]="dos" placeholder="tu respuesta">
           <h1 [ngClass]="camposFaltantes.includes('dos') ? 'alerta' : 'completado'">rellena este campo</h1>
       </div>
       
       <div class="campo-puesto dos">
-          <h1>Responde alas siguientes preguntas</h1>
+          <h1 class="titulos">Responde alas siguientes preguntas</h1>
           <div class="caras">
             <div class="opciones">
               <p class="pnone">Criterios</p>
@@ -149,7 +153,7 @@
 
  
       <div class="campo-puesto dos">
-        <h1>Selecciona la percepción que has generado de tu jefe</h1>
+        <h1 class="titulos">Selecciona la percepción que has generado de tu jefe</h1>
         
         <div class="caras">
           <div class="opciones">
@@ -647,7 +651,7 @@
       
 
       <div class="campo-puesto">
-        <h1>Estoy trabajando actualmente con mi manual de puesto</h1>
+        <h1 class="titulos">Estoy trabajando actualmente con mi manual de puesto</h1>
       
         <div class="d-flex align-items-center manual">
           <input   (ngModelChange)="cambiar($event, 'doce')"  class="radio" type="radio" id="manual1" name="manual" value="1" [(ngModel)]="doce">
@@ -693,7 +697,7 @@
       
 
       <div class="campo-puesto">
-        <h1>Me han dejado trabajando solo en alguna de mis actividades</h1>
+        <h1 class="titulos">Me han dejado trabajando solo en alguna de mis actividades</h1>
       
         <div class="d-flex align-items-center manual">
           <input class="radio" type="radio" id="working-alone1" name="working-alone" value="1" [(ngModel)]="trece"   (ngModelChange)="cambiar($event, 'trece')" >
@@ -753,11 +757,11 @@
 </div>
 
       <div class="campo-puesto">
-        <h1>Menciona el nombre de tu jefe</h1>
+        <h1 class="titulos">Menciona el nombre de tu jefe</h1>
         <input type="text" placeholder="tu respuesta"    [(ngModel)]="catorce">
     </div>
       <div class="campo-puesto">
-          <h1>Hay algo que nos sugieras para mejorar la experiencia de las primeras semanas en la empresa</h1>
+          <h1 class="titulos">Hay algo que nos sugieras para mejorar la experiencia de las primeras semanas en la empresa</h1>
           <input [(ngModel)]="quince" type="text" placeholder="tu respuesta">
       </div>
       
