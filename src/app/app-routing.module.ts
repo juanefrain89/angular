@@ -7,6 +7,8 @@ import { Formulario3Component } from './formulario3/formulario3.component';
 import { TablaComponent } from './tabla/tabla.component';
 import { EjemploComponent } from './ejemplo/ejemplo.component';
 import { Respuestas1Component } from './respuestas1/respuestas1.component';
+import { Respuestas2Component } from './respuestas2/respuestas2.component';
+import { Respuestas3Component } from './respuestas3/respuestas3.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,8 @@ const routes: Routes = [
   {
     path:`usuarios/:id`,
     component :Respuestas1Component
-  }
+  },
+ 
   
 ];
 

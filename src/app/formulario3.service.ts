@@ -6,9 +6,19 @@ import { Observable } from 'rxjs';
 })
 export class Formulario3Service {
   
+  
   constructor(private http : HttpClient) { }
-  url = "http://localhost:4200/formulario3"
-  mandar(info : any):Observable<any>{
-  return this.http.post("url", {info})
-  }
+url = "http://localhost:3100/tercerformulario"
+mandar(info : any):Observable<any>{
+return this.http.post(this.url, {info})
+}
+
+traer():Observable<any>{
+  return this.http.get("http://localhost:3100/gettercero")
+}
+fecha(info : any):Observable<any>{
+  return this.http.post("http://localhost:3100/fechatres",{info})
+}
+  
+  
 }

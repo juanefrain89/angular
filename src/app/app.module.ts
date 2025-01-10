@@ -30,6 +30,10 @@ import { Respuestas1Component } from './respuestas1/respuestas1.component';
 import { Respuestas2Component } from './respuestas2/respuestas2.component';
 import { Respuestas3Component } from './respuestas3/respuestas3.component';
 import { GraficasComponent } from './graficas/graficas.component';
+import { NgChartsModule } from 'ng2-charts';
+import { PersonalComponent } from './personal/personal.component'; 
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { GraficarecomendacionComponent } from './graficarecomendacion/graficarecomendacion.component';
 
 registerLocaleData(nl);
 @NgModule({
@@ -47,9 +51,13 @@ registerLocaleData(nl);
     Respuestas2Component,
     Respuestas3Component,
     GraficasComponent,
+    PersonalComponent,
+    GraficarecomendacionComponent,
     
   ],
   imports: [
+    NgxDaterangepickerMd.forRoot(),
+    NgChartsModule,
     NzModalModule,
     NzTableModule,
     BrowserAnimationsModule,
@@ -61,7 +69,8 @@ registerLocaleData(nl);
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
     provideClientHydration(),

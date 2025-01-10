@@ -16,6 +16,81 @@ body, html{
     margin: 0%;
 }
 
+
+
+.alertap{ 
+    position: fixed;
+    top: 45%; 
+    width: 50% !important;
+    height: 40% !important;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: rgb(152, 255, 152) !important;
+    color: #333333; /* Gris oscuro, legible y suave */
+    padding: 15px;
+    flex-direction: column;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #218838; /* Verde más oscuro para el borde */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.info > h1{
+    font-size: 40px !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.info{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acep{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding-right: 50px;
+}
+
+
+ button{
+    cursor: pointer;
+  
+ }
+ .acep > button {
+    width: 35%; 
+    height: 35px;
+    background-color: #28a745; 
+    color: #ffffff;
+    font-size: 16px; 
+    padding: 0; 
+    border-radius: 25px; 
+    border: 2px solid #218838; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; 
+
+    display: flex; 
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-align: center; /* Asegura que el texto dentro esté centrado */
+  }
+  
+  .button:hover {
+    background-color: #218838; /* Verde más oscuro cuando se pasa el mouse */
+    border-color: #1e7e34; /* Borde más oscuro al hacer hover */
+    cursor: pointer; /* Cambia el cursor para indicar que es un botón interactivo */
+  }
+  
+
 .contenedor{
     width: 90%;
     height: auto;

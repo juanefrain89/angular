@@ -90,7 +90,7 @@ this.camposFaltantes=[]
 
   if (this.camposFaltantes.length > 0) {
     alert(`Faltan los siguientes campos por llenar: ${this.camposFaltantes.join(', ')}`);
-    this.alertap = true
+
     
   
   } else {

@@ -7,42 +7,63 @@
    
 }
 
+#jgl{
+    background-color: white;
+    border: 1px solid rgb(153, 153, 153) !important;
+    border-radius: 2px;
+    box-sizing: border-box;
+    gap: 10px;
+    height: 37px;
+    padding: 7px 10px;
+    width: 100%;
+    border: 1px solid #f3f7f8;
+    box-shadow: 0 3px 8px rgba(93, 115, 126, 0.1019607843);
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
 .padre, .padre-padre{
     background-color: #e7e5e5!important;
 }
 
 .tablas{
   
-    padding-left: 10px;
+    
 background-color: #fff;
 margin-top: 20px;
 }
 
+.fin{
+    margin-left: auto;
+}
+
 .tt{
     display: flex;
+    margin-bottom: 20px;
 }
 
 .tabla1{
-    margin-right: 10px;
+    margin-right: 3px;
+  
+
 
 }
 
 
 .normal{
     font-size: 20px;
+    margin-bottom: 0px;
     cursor: pointer;
 
 }
 .activo{
     font-size: 20px;
     cursor: pointer;
-    border-bottom:  1px solid blue;
+  
     color: blue;
+margin-bottom: 0;
 }
 
-.activo{
-
-}
 
 .formulario1{
 width: 170px !important;
@@ -131,6 +152,17 @@ td{
     background-color: rgb(250, 250, 250);
 }
 
+.next{
+    width: 100px;
+    height: 30px;
+    display:  grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.next > p{
+    border-right: 1px solid grey;
+}
+
 .inputs > input{
     background-color: white;
     border: 1px solid rgb(153, 153, 153) !important;
@@ -139,7 +171,7 @@ td{
     gap: 10px;
     height: 37px;
     padding: 7px 10px;
-    width: 100%;
+    width: 97%;
     border: 1px solid #f3f7f8;
     box-shadow: 0 3px 8px #5d737e1a;
     margin-right: 10px;
@@ -164,7 +196,7 @@ div >a {
     height: 90%;
     background-color: #fff;
     border: 1px solid #f3f7f8;
-    border-top: 1px solid gray;
+    border-top: 1px solid #bdb7b7;
     box-shadow: 0 3px 8px #5d737e1a;
     border-radius: 5px;
     border-radius: 8px;
@@ -206,6 +238,26 @@ td > div > p{
     margin: 0%;
     padding: 0%;   
 }
+.bmv, .bmvactivo{
+    border-radius: 2px;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: rgb(250, 250, 250);
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    cursor: pointer;
+}
+
+
+
+.bmvactivo{
+background-color: gainsboro;
+}
 
 
 .inputs{
@@ -216,6 +268,7 @@ td > div > p{
     gap: 5px;
     padding: 0 20px 0 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow: hidden;
 }
 
 .pl {

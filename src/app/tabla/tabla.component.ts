@@ -1,7 +1,20 @@
 import { Component } from '@angular/core';
+import { Moment } from 'moment';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Formulario2Service } from '../formulario2.service';
+import { Formulario3Service } from '../formulario3.service';
+import { GoodService } from '../good.service';
+import  moment from 'moment'; 
+import { GraficasService } from '../graficas.service';
+interface Persona {
+  fecha: string;
+  nombre: string;
+  departamento: string;
+  puesto: string;
+  id: number;
+}
 @Component({
   selector: 'app-tabla',
   standalone: false,
@@ -12,12 +25,16 @@ export class TablaComponent {
   nombre: string = "";
   puesto: string =""
   area: string = ""
+  
  
-constructor(private controller: Router){
+constructor(private controller: Router,private servcio1: GoodService, private servicio2: Formulario2Service, private servicio3 : Formulario3Service, private servicio4: GraficasService){
 
 }
+selected : any
+personas: Persona[] = [];
 
-
+valor = 1
+binding = 1
 handleusuario(id : any){
   console.log("njdfyuvskmjdk");
   
@@ -26,25 +43,179 @@ handleusuario(id : any){
 
 activo = 1
 
-handleactivo(numero : any){
-  this.activo =  numero
+segundo: any[]=[]
+filtra: any[]=[]
+handleactivo(numero: any) {
+  this.selected = null
+  this.nombre = ""
+  this.area =""
+  this.puesto =""
+
+  this.activo = numero;
+  this.all = []; 
+
+  if (numero == 2) {
+   
+    this.segundo = []; 
+
+    this.servicio2.traer().subscribe((dates: { uno: string, dos: string, id:any, fecha:any }[]) => {    
+      
+      
+      this.personas = dates.map(g => ({
+        fecha: g.fecha,       
+        nombre: g.uno,  
+        departamento: "", 
+        puesto: g.dos  , 
+        id: g.id
+      }));
+      this.all.push(...this.personas);
+      this.segundo.push(...dates);
+    });
+  }if (numero == 1) {
+    this.segundo = []; 
+    this.all = [];  
+    
+    this.servcio1.traer().subscribe((dates: { uno: string, dos: string, id: any, fecha:any }[]) => {    
+      console.log(dates);
+      this.personas = dates.map(g => ({
+        fecha: g.fecha,
+        nombre: g.uno,  
+        departamento: "desconocido", 
+        puesto: g.dos,
+        id: g.id
+      }));
+      this.all = [...this.personas];  
+      this.segundo.push(...dates);
+    });
+  } else if (numero == 3) {
+    this.segundo = []; 
+    this.all = [];  
+  
+    this.servicio3.traer().subscribe((dates: { uno: string, dos: string, id: any }[]) => {    
+      this.personas = dates.map(g => ({
+        fecha: "",
+        nombre: g.uno,  
+        departamento: "", 
+        puesto: g.dos,
+        id: g.id
+      }));
+      this.all = [...this.personas];  
+      this.segundo.push(...dates);
+    });
+  }
+  
+
+
 }
 
 fecha: any =""
 formulario = 0
-
 isModalVisible = false; 
 modal2 = false
+respuestas1 = false
+respuestas2 = false
+respuestas3= false
 modal3 = false
 dia : any=""
 
+idSeleccionado2: any
+idSleccionado3:any
+selectedOption: string = '';
+
 handlefecha(){
-  this.dia = parseInt( this.fecha.split("-")[2])
-  console.log(typeof this.dia);
+  if (this.activo == 1) {
+    console.log(" entro al servicio 1 ");
+  console.log(this.selected.startDate.format('YYYY-MM-DD'));
+  console.log(this.selected.endDate.format('YYYY-MM-DD'));
+  this.segundo = []; 
+    this.all = [];  
+  let datos={
+inicio : this.selected.startDate.format('YYYY-MM-DD'),
+fin :this.selected.endDate.format('YYYY-MM-DD')
+  }
+  
+  this.servcio1.fecha(datos).subscribe((dates: { uno: string, dos: string, id: any, fecha:any }[]) => {    
+    console.log(dates);
+    this.personas = dates.map(g => ({
+      fecha: g.fecha,
+      nombre: g.uno,  
+      departamento: "desconocido", 
+      puesto: g.dos,
+      id: g.id
+    }));
+    this.all = [...this.personas];  
+    this.segundo.push(...dates);
+  });
+}if(this.activo == 2){
+this.personas = []
+  console.log(this.selected.startDate.format('YYYY-MM-DD'));
+  console.log(this.selected.endDate.format('YYYY-MM-DD'));
+  this.segundo = []; 
+    this.all = [];  
+  let datos={
+inicio : this.selected.startDate.format('YYYY-MM-DD'),
+fin :this.selected.endDate.format('YYYY-MM-DD')
+  }
+  
+  this.servicio2.fecha(datos).subscribe((dates: { uno: string, dos: string, id: any, fecha:any }[]) => {    
+    console.log(dates);
+    this.personas = dates.map(g => ({
+      fecha: g.fecha,
+      nombre: g.uno,  
+      departamento: "desconocido", 
+      puesto: g.dos,
+      id: g.id
+    }));
+    this.all = [...this.personas];  
+    this.segundo.push(...dates);
+  });
+
 }
 
+if(this.activo == 3){
+  
+  console.log(this.selected.startDate.format('YYYY-MM-DD'));
+  console.log(this.selected.endDate.format('YYYY-MM-DD'));
+  this.segundo = []; 
+    this.all = [];  
+  let datos={
+inicio : this.selected.startDate.format('YYYY-MM-DD'),
+fin :this.selected.endDate.format('YYYY-MM-DD')
+  }
+  
+  this.servicio3.fecha(datos).subscribe((dates: { uno: string, dos: string, id: any, fecha:any }[]) => {    
+    console.log(dates);
+    this.personas = dates.map(g => ({
+      fecha: g.fecha,
+      nombre: g.uno,  
+      departamento: "desconocido", 
+      puesto: g.dos,
+      id: g.id
+    }));
+    this.all = [...this.personas];  
+    this.segundo.push(...dates);
+  });
 
+}
+  
+}
 
+abrirrespuestas1(id: number):void{
+  console.log(id);
+  
+  this.respuestas1 = true
+}
+
+ abrirrespuestas2(id :any){
+  this.idSeleccionado2 = id  
+  this.respuestas2= true
+  console.log(id);
+ 
+ }
+ abrirrespuestas3(id: any){
+this.idSleccionado3=id
+  this.respuestas3= true
+ }
 abrirmodal3(): void{
   this.modal3= true
 }
@@ -55,13 +226,14 @@ abrirModal(): void {
   this.formulario = 1;
   this.isModalVisible = true;
 }
-
-// Cierra el modal y configura el formulario en 0
 cerrarModal(): void {
   this.formulario = 0;
   this.modal2 = false
   this.modal3 = false
   this.isModalVisible = false;
+  this.respuestas1 = false
+  this.respuestas2 = false
+  this.respuestas3= false
 }
 
 
@@ -70,34 +242,6 @@ optiones(evento : any){
   
 this.formulario = evento
 }
-
-   personas = [
-    { fecha: "23/11/2002", nombre: "Javier Gonzales", departamento: "tics", puesto: "Ing datos" },
-    { fecha: "23/11/2002", nombre: "Josue", departamento: "calidad", puesto: "calidad operativa" },
-    { fecha: "23/11/2002", nombre: "Arabe", departamento: "administracion", puesto: "auxiliar" },
-    { fecha: "25/12/2020", nombre: "María López", departamento: "finanzas", puesto: "analista" },
-    { fecha: "10/03/2015", nombre: "Carlos Pérez", departamento: "tics", puesto: "programador" },
-    { fecha: "12/06/2018", nombre: "Lucía García", departamento: "marketing", puesto: "coordinadora" },
-    { fecha: "15/09/2017", nombre: "Fernando Ramírez", departamento: "ventas", puesto: "ejecutivo" },
-    { fecha: "01/08/2019", nombre: "Ana Martínez", departamento: "recursos humanos", puesto: "especialista" },
-    { fecha: "30/01/2021", nombre: "Pedro Sánchez", departamento: "tics", puesto: "desarrollador" },
-    { fecha: "17/07/2016", nombre: "Claudia Méndez", departamento: "finanzas", puesto: "contador" },
-    { fecha: "04/10/2022", nombre: "Miguel Torres", departamento: "administracion", puesto: "auxiliar" },
-    { fecha: "29/11/2019", nombre: "Sofía Díaz", departamento: "calidad", puesto: "analista" },
-    { fecha: "22/03/2018", nombre: "David Jiménez", departamento: "marketing", puesto: "diseñador" },
-    { fecha: "03/05/2017", nombre: "Raúl González", departamento: "ventas", puesto: "gerente" },
-    { fecha: "09/12/2020", nombre: "Esteban Ruiz", departamento: "recursos humanos", puesto: "reclutador" },
-    { fecha: "19/11/2016", nombre: "Marta Vargas", departamento: "tics", puesto: "analista de datos" },
-    { fecha: "27/04/2022", nombre: "José García", departamento: "administracion", puesto: "secretario" },
-    { fecha: "14/02/2021", nombre: "Daniela Pérez", departamento: "calidad", puesto: "supervisora" },
-    { fecha: "16/05/2020", nombre: "Ricardo Fernández", departamento: "ventas", puesto: "consultor" },
-    { fecha: "20/06/2019", nombre: "Beatriz Sánchez", departamento: "finanzas", puesto: "auditor" }
-  ];
-
-  fechaa = this.personas[1].fecha.split("/")[0]
-
-
-
 
 
   all= this.personas
@@ -108,27 +252,52 @@ filtrar_area:any[]=[]
 
 
 
+ngOnInit(): void {
+  
+  this.servcio1.traer().subscribe((datos: { uno: string, dos: string, id: any, fecha:any }[]) => {
+    const personasIniciales = datos.map(g => ({
+      fecha: g.fecha,
+      nombre: g.uno,
+      departamento: "desconocido",
+      puesto: g.dos,
+      id: g.id
+    }));
+    this.personas = [...personasIniciales];
+    this.all = [...this.personas]; 
+  });
+ 
+}
+
 
 filtraciones(evento: string) {
   console.log(this.fecha);
+  const startDateFormatted = this.selected?.startDate;
+  const endDateFormatted = this.selected?.endDate;
+
   
-  if (this.nombre.trim() === "" && this.puesto.trim() === "" && this.area ==="" && this.fecha=="" ) {
-    this.all = this.personas;
-  } else {
-   
-    this.filtrar_nombre = this.personas.filter(persona => {
-      const nombrecampo = persona.nombre.toLowerCase().includes(this.nombre.toLowerCase().trim());
-      const fe= persona.fecha.split("/")[0] == this.dia 
-      const puestocampo = persona.puesto.toLowerCase().includes(this.puesto.toLowerCase().trim());
-      const areacampo = persona.departamento.toLowerCase().includes(this.area.toLowerCase().trim())
-      return nombrecampo && puestocampo && areacampo && fe ;
-    });
+    if (this.nombre.trim() === "" && this.puesto.trim() === "" && this.area === "" && this.fecha === "") {
+      this.all = this.personas;
+    } else {
+      this.filtrar_nombre = this.personas.filter(persona => {
+        const personaFecha = moment(persona.fecha, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
 
-    
-    this.all = [...this.filtrar_nombre];
-  }
-console.log(evento);
+      
 
-  console.log(this.all); 
-}
+        const nombrecampo = persona.nombre.toLowerCase().includes(this.nombre.toLowerCase().trim());
+        const puestocampo = persona.puesto.toLowerCase().includes(this.puesto.toLowerCase().trim());
+        const areacampo = persona.departamento.toLowerCase().includes(this.area.toLowerCase().trim());
+
+        return nombrecampo && puestocampo && areacampo ;
+      });
+
+      this.all = [...this.filtrar_nombre];
+    }
+
+    console.log(evento);
+    console.log(this.all);
+  } 
+
+
+
+
 }

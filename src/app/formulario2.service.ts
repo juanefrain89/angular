@@ -6,10 +6,17 @@ import { Observable } from 'rxjs';
 })
 export class Formulario2Service {
 
+  
   constructor(private http : HttpClient) { }
-  url = "http://localhost:4200"
-  mandar(info : any):Observable<any>{
-  return this.http.post("url", {info})
-  }
+url = "http://localhost:3100/segundoformulario"
+mandar(info : any):Observable<any>{
+return this.http.post(this.url, {info})
+}
+fecha(info : any):Observable<any>{
+  return this.http.post("http://localhost:3100/fechados",{info})
+}
+traer():Observable<any>{
+  return this.http.get("http://localhost:3100/getsegundo")
+}
   
 }

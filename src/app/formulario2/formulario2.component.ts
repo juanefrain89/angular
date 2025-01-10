@@ -16,7 +16,7 @@ export class Formulario2Component {
 
 uno: string="";
 dos : string=""
-tres: any=""
+tres: any=0
 cuatro: any=0
 cinco : any =0
 seis:any=0
@@ -39,7 +39,13 @@ constructor(private servicio: Formulario2Service,
 
 
 
-
+  alertap = false
+  aceptar(){
+    window.location.reload()
+   
+    this.alertap= false
+  
+  }
 
 
 
@@ -47,10 +53,12 @@ constructor(private servicio: Formulario2Service,
 
 
   enviar(): void {
+   console.log(this.tres);
    
     let campos={
       uno: this.uno,
       dos:this.dos,
+      //campo 3 es fecha
       cuatro:this.cuatro,
       cinco:this.cinco,
       seis:this.seis,
@@ -63,12 +71,7 @@ constructor(private servicio: Formulario2Service,
   
     
   this.camposFaltantes=[] 
-  if(this.uno.length < 5 ){
-    this.camposFaltantes.push("uno")
-  }
-   if(this.dos.length <5){
-    this.camposFaltantes.push("dos")
-   }
+
     for (const [campo, valor] of Object.entries(campos)) {
       if (!valor || valor === 0 || valor === '') {
         this.camposFaltantes.push(campo); 
@@ -83,7 +86,9 @@ constructor(private servicio: Formulario2Service,
       console.log(campos);
       this.servicio.mandar(campos).subscribe(
         (datos) => {
+      
           console.log('Respuesta del servidor:', datos);
+          this.alertap = true
         },
         (error) => {
           console.log('Error al enviar los datos:', error);

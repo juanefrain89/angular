@@ -13,6 +13,7 @@ import { log } from 'console';
   styleUrls: ['./formulario3.component.scss'] 
 })
 export class Formulario3Component implements OnInit {
+
   miFormulario!: FormGroup;
   uno: string = '';
   dos: string = '';
@@ -36,7 +37,13 @@ export class Formulario3Component implements OnInit {
   veinte: any = 0;
   veintiuno: any = "";
  
-
+  alertap = false
+  aceptar(){
+    window.location.reload()
+   
+    this.alertap= false
+  
+  }
   constructor(
     private servicio: Formulario3Service,
     private fb: FormBuilder,
@@ -508,6 +515,7 @@ this.total = (this.valor5 +this.valor7+this.valor8 + this.valor9 + this.valor10 
   }
 
   ngOnInit(): void {
+    
     this.miFormulario = this.fb.group({
       nombre: ['', [Validators.required]], 
       email: ['', [Validators.required, Validators.email]], 
@@ -525,7 +533,7 @@ this.total = this.valor5
       tres: this.tres,
      //csmpo 4 es fecha
       cinco: this.cinco,
-      seis: this.seis,
+      //seis es opcional 
       siete: this.siete,
       ocho: this.ocho,
       nueve: this.nueve,
@@ -565,15 +573,16 @@ this.total = this.valor5
       this.servicio.mandar(campos).subscribe(
         (datos) => {
           console.log('Respuesta del servidor:', datos);
+          this.alertap = true
         },
         (error) => {
           alert("ERROR")
           console.log('Error al enviar los datos:', error);
+          console.log(campos);
+          
         }
       );
     }
   }
   
-
-
 }

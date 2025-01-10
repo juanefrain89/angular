@@ -1,1 +1,1164 @@
-<p>respuestas3 works!</p>
+
+<div class="padre">
+   
+    <div class="contenedor"> 
+      <div class="campo-nombre nombre2">
+        <h1 class="titulos">Proceso de seleccion3</h1>
+        <p>agradecemos que respondas a todas las preguntas con el fin  de mejorar nuestros procesos y tu experiencia en esta nueva etapa</p>
+      </div>     
+        <div class="campo-nombre">
+           
+            <h1>Nombre</h1>
+            <h1 class="h1-nombre"></h1>
+            <input readonly type="text" [(ngModel)]="uno" placeholder="Tu respuesta"   >
+            <h1 [ngClass]="camposFaltantes.includes('uno') ? 'alerta' : 'completado'">rellena este campo</h1>
+        </div>
+       
+        <div class="campo-puesto">
+            <h1>Celular personal</h1>
+            <input readonly type="text" [(ngModel)]="dos" placeholder="Tu respuesta" value="hola"   >
+            <h1 [ngClass]="camposFaltantes.includes('dos') ? 'alerta' : 'completado'">rellena este campo</h1>
+        </div>
+        
+        <div class="campo-puesto">
+            <h1>Puesto</h1>
+            <input readonly type="text" [(ngModel)]="tres" placeholder="Tu respuesta"   >
+            <h1 [ngClass]="camposFaltantes.includes('tres') ? 'alerta' : 'completado'">rellena este campo</h1>
+        </div>
+       
+        <div style="display: none;" class="campo-puesto">
+            <h1>Fecha</h1>
+            <input readonly type="text" [(ngModel)]="cuatro" placeholder="Tu respuesta" value="hola"   >
+            <h1 [ngClass]="camposFaltantes.includes('cuatro') ? 'alerta' : 'completado'">rellena este campo</h1>
+        </div>
+       
+
+
+
+
+<div class="campo-puesto dos">
+            <h1>¿Como te enteraste de la oferta laboral?</h1>
+            <div class="intructor">
+                <div class="d-flex align-items-center">
+                    <input readonly 
+                    
+                   
+                      [(ngModel)]="cinco" 
+                      name="instructor" 
+                      value="1" 
+                      type="radio"
+                      id="radioInstructor"
+                      
+                    >
+                   
+                    <label for="radioInstructor" class="ms-2">
+                      <fa-icon 
+                        [icon]="['fas', 'face-smile']" 
+                        size="2x"  
+                        [fixedWidth]="true"  
+                       
+                        [ngClass]="{'activo' : cinco == 1, 'text-primary': cinco != 1}"
+                      ></fa-icon>
+                      <span class="ms-1">Por recomendación</span>
+                    </label>
+                  </div>
+            </div>
+            <div class="intructor">
+                <div class="d-flex align-items-center">
+                    <input readonly 
+                 
+                      [(ngModel)]="cinco" 
+                      name="instructor" 
+                      value="2" 
+                      type="radio"
+                      id="radioInstructor2"
+                    >
+                    <label for="radioInstructor" class="ms-2">
+                      <fa-icon 
+                        [icon]="['fas', 'face-smile']" 
+                        size="2x"  
+                        [fixedWidth]="true"  
+                       
+                        [ngClass]="{'activo' : cinco == 2, 'text-primary': cinco != 2}"
+                      ></fa-icon>
+                      <span class="ms-1">Redes sociales</span>
+                    </label>
+                  </div>
+                  
+             
+            </div>
+             <div class="intructor">
+                <div class="d-flex align-items-center">
+                    <input readonly 
+                 
+                      [(ngModel)]="cinco" 
+                      name="instructor" 
+                      value="3" 
+                      type="radio"
+                      id="radioInstructor3"
+                    >
+                    <label for="radioInstructor" class="ms-2">
+                      <fa-icon 
+                        [icon]="['fas', 'face-smile']" 
+                        size="2x"  
+                        [fixedWidth]="true"  
+                       
+                        [ngClass]="{'activo' : cinco == 3, 'text-primary': cinco != 3}"
+                      ></fa-icon>
+                      <span class="ms-1">Plataformas(OCC, INDEED, etc)</span>
+                    </label>
+                  </div>  
+             
+            </div>
+            <div class="intructor">
+                <div class="d-flex align-items-center">
+                    <input readonly 
+                 
+                      [(ngModel)]="cinco" 
+                      name="instructor" 
+                      value="4" 
+                      type="radio"
+                      id="radioInstructor4"
+                    >
+                    <label for="radioInstructor" class="ms-2">
+                      <fa-icon 
+                        [icon]="['fas', 'face-smile']" 
+                        size="2x"  
+                        [fixedWidth]="true"  
+                       
+                        [ngClass]="{'activo' : cinco == 4, 'text-primary': cinco != 4}"
+                      ></fa-icon>
+                      <span class="ms-1">Reingreso</span>
+                    </label>
+                  </div>
+             
+            </div> 
+             <h1 [ngClass]="camposFaltantes.includes('cinco') ? 'alerta' : 'completado'">rellena este campo</h1>
+            
+            
+        </div>
+        
+        <div *ngIf="cinco == 1" class="campo-nombre">
+            <h1>menciona quien te recomendo y el departamento que pertenece</h1>
+            <h1 class="h1-nombre"></h1>
+            <input readonly type="text" [(ngModel)]="seis" placeholder="Tu respuesta"   >
+        </div>
+
+
+
+        <div class="campo-puesto dos">
+          <h1>¿La información en la entrevista fue clara?</h1>
+        
+          <!-- Opción 1 -->
+          <div class="intructor">
+            <div class="d-flex align-items-center">
+              <input readonly 
+           
+               
+                name="favorito" 
+                value="1" 
+                type="radio" 
+                id="radioInstructor1"
+              >
+              <label for="radioInstructor1" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-frown']" 
+                  size="2x"  
+                  [fixedWidth]="true"  
+                  [ngClass]="{'activo1' : siete == 1, 'text-primary': siete != 1}"
+                ></fa-icon>
+                <span class="ms-1">En desacuerdo</span>
+              </label>
+            </div>
+          </div>
+        
+          <!-- Opción 2 -->
+          <div class="intructor">
+            <div class="d-flex align-items-center">
+              <input readonly 
+           
+               
+                name="favorito" 
+                value="2" 
+                type="radio" 
+                id="radioInstructor2"
+              >
+              <label for="radioInstructor2" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-meh']" 
+                  size="2x"  
+                  [fixedWidth]="true"  
+                  [ngClass]="{'activo2' : siete == 2, 'text-primary': siete != 2}"
+                ></fa-icon>
+                <span class="ms-1">De acuerdo</span>
+              </label>
+            </div>
+          </div>
+        
+          <!-- Opción 3 -->
+          <div class="intructor">
+            <div class="d-flex align-items-center">
+              <input readonly 
+           
+               
+                name="favorito" 
+                value="3" 
+                type="radio" 
+                id="radioInstructor3"
+              >
+              <label for="radioInstructor3" class="ms-2">
+                <fa-icon 
+                  [icon]="['fas', 'face-smile']" 
+                  size="2x"  
+                  [fixedWidth]="true"  
+                  [ngClass]="{'activo' : siete == 3, 'text-primary': siete != 3}"
+                ></fa-icon>
+                <span class="ms-1">Totalmente en desacuerdo</span>
+              </label>
+            </div>
+          </div>
+        
+          <h1 [ngClass]="camposFaltantes.includes('siete') ? 'alerta' : 'completado'">
+            Rellena este campo
+          </h1>
+        </div>
+        
+
+        <div class="campo-puesto dos">
+            <h1>¿Se respetaron los horarios programados para la entrevista?</h1>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="horarios" 
+                  value="1" 
+                  type="radio" 
+                  id="radioHorario1"
+                >
+                <label for="radioHorario1" class="ms-2">
+                  <fa-icon 
+                  [icon]="['fas', 'face-frown']"
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo1' : ocho == 1, 'text-primary': ocho != 1}"
+                  ></fa-icon>
+                  <span class="ms-1">En desacuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="horarios" 
+                  value="2" 
+                  type="radio" 
+                  id="radioHorario2"
+                >
+                <label for="radioHorario2" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-meh']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo2' : ocho == 2, 'text-primary': ocho != 2}"
+                  ></fa-icon>
+                  <span class="ms-1">De acuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="horarios" 
+                  value="3" 
+                  type="radio" 
+                  id="radioHorario3"
+                >
+                <label for="radioHorario3" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-smile']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo' : ocho == 3, 'text-primary': ocho != 3}"
+                  ></fa-icon>
+                  <span class="ms-1">Totalmente de acuerdo</span>
+                </label>
+              </div>
+            </div>
+            <h1 [ngClass]="camposFaltantes.includes('ocho') ? 'alerta' : 'completado'">rellena este campo</h1>
+          </div>
+          
+
+
+          <div class="campo-puesto dos">
+            <h1>¿Me sentí bienvenido(a) en la entrevista?</h1>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="bienvenido" 
+                  value="1" 
+                  type="radio" 
+                  id="radioBienvenido1"
+                >
+                <label for="radioBienvenido1" class="ms-2">
+                  <fa-icon 
+                  [icon]="['fas', 'face-frown']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo1' : nueve == 1, 'text-primary': nueve != 1}"
+                  ></fa-icon>
+                  <span class="ms-1">En desacuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="bienvenido" 
+                  value="2" 
+                  type="radio" 
+                  id="radioBienvenido2"
+                >
+                <label for="radioBienvenido2" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-meh']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo2' : nueve == 2, 'text-primary': nueve != 2}"
+                  ></fa-icon>
+                  <span class="ms-1">De acuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="bienvenido" 
+                  value="3" 
+                  type="radio" 
+                  id="radioBienvenido3"
+                >
+                <label for="radioBienvenido3" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-smile']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo' : nueve == 3, 'text-primary': nueve != 3}"
+                  ></fa-icon>
+                  <span class="ms-1">Totalmente de acuerdo</span>
+                </label>
+              </div>
+            </div>
+            <h1 [ngClass]="camposFaltantes.includes('nueve') ? 'alerta' : 'completado'">rellena este campo</h1>
+          </div>
+          
+
+
+        
+
+
+
+
+          <div class="campo-puesto dos">
+            <h1>¿La duración del proceso de contratación fue razonable?</h1>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="contratacion" 
+                  value="1" 
+                  type="radio" 
+                  id="radioContratacion1"
+                >
+                <label for="radioContratacion1" class="ms-2">
+                  <fa-icon 
+                  [icon]="['fas', 'face-frown']"
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo1' : diez == 1, 'text-primary': diez != 1}"
+                  ></fa-icon>
+                  <span class="ms-1">En desacuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="contratacion" 
+                  value="2" 
+                  type="radio" 
+                  id="radioContratacion2"
+                >
+                <label for="radioContratacion2" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-meh']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo2' : diez == 2, 'text-primary': diez != 2}"
+                  ></fa-icon>
+                  <span class="ms-1">De acuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                 
+                  name="contratacion" 
+                  value="3" 
+                  type="radio" 
+                  id="radioContratacion3"
+                >
+                <label for="radioContratacion3" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-smile']" 
+                    size="2x"  
+                    [fixedWidth]="true"  
+                    [ngClass]="{'activo' : diez == 3, 'text-primary': diez != 3}"
+                  ></fa-icon>
+                  <span class="ms-1">Totalmente de acuerdo</span>
+                </label>
+              </div>
+            </div>
+            <h1 [ngClass]="camposFaltantes.includes('diez') ? 'alerta' : 'completado'">rellena este campo</h1>
+          </div>
+          
+          <div class="campo-puesto dos">
+            <h1>Selecciona la percepción que has generado de tu jefe</h1>
+            
+            <div class="caras">
+              <div class="opciones">
+                <p class="pnone">Criterios</p>
+                <p>Desacuerdo</p>
+                <p>De acuerdo</p>
+                <p class="tres">Totalmente de acuerdo</p>
+                
+                </div>
+              <div class="div">
+                <p>Preparado</p>
+               
+                <div class="d-flex align-items-center centrar">
+                  <input readonly 
+               
+                    type="radio" 
+                    id="prepared1" 
+                    name="prepared" 
+                    value="1" 
+                    
+                  >
+                  <label for="prepared1" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-frown']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo1': once == 1, 'text-primary': once != 1}"
+                    ></fa-icon>
+                   
+                  </label>
+                </div>
+          
+                <div class="d-flex align-items-center centrar">
+                  <input readonly 
+               
+                    type="radio" 
+                    id="prepared2" 
+                    name="prepared" 
+                    value="2" 
+                    
+                  >
+                  <label for="prepared2" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-meh']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo2': once == 2, 'text-primary': once != 2}"
+                    ></fa-icon>
+                   
+                  </label>
+                </div>
+          
+                <div class="d-flex align-items-center centrar">
+                  <input readonly 
+               
+                    type="radio" 
+                    id="prepared3" 
+                    name="prepared" 
+                    value="3" 
+                    
+                  >
+                  <label for="prepared3" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-smile']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo': once == 3, 'text-primary': once != 3}"
+                    ></fa-icon>
+                   
+                  </label>
+                </div>
+               
+              </div>
+              <h1 [ngClass]="camposFaltantes.includes('once') ? 'alerta' : 'completado'">rellena este campo</h1>
+          
+              <!-- Repite este bloque para las demás categorías como amigable, consistente, alentador, etc. -->
+              <div class="div">
+                <p>Amigable</p>
+                <div class="d-flex align-items-center centrar">
+                  <input readonly 
+               
+                    type="radio" 
+                    id="friendly1" 
+                    name="friendly" 
+                    value="1" 
+                   
+                  >
+                  <label for="friendly1" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-frown']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo1': doce == 1, 'text-primary': doce != 1}"
+                    ></fa-icon>
+                   
+                  </label>
+                </div>
+          
+                <div class="d-flex align-items-center centrar">
+                  <input readonly 
+               
+                    type="radio" 
+                    id="friendly2" 
+                    name="friendly" 
+                    value="2" 
+                   
+                  >
+                  <label for="friendly2" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-meh']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo2': doce == 2, 'text-primary': doce != 2}"
+                    ></fa-icon>
+                   
+                  </label>
+                </div>
+          
+                <div class="d-flex align-items-center centrar">
+                  <input readonly 
+               
+                    type="radio" 
+                    id="friendly3" 
+                    name="friendly" 
+                    value="3" 
+                   
+                  >
+                  <label for="friendly3" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-smile']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo': doce == 3, 'text-primary': doce != 3}"
+                    ></fa-icon>
+                   
+                  </label>
+                </div>
+              </div>
+              <h1 [ngClass]="camposFaltantes.includes('doce') ? 'alerta' : 'completado'">rellena este campo</h1>
+          
+              <!-- Repite para "consistente", "alentador", "claro", "profesional", y "empático" -->
+               <div class="div">
+  <p>Consistente</p>
+  <div class="d-flex align-items-center centrar">
+    <input readonly 
+      
+      type="radio" 
+      id="consistent1" 
+      name="consistent" 
+      value="1" 
+      
+    >
+    <label for="consistent1" class="ms-2">
+      <fa-icon 
+        [icon]="['fas', 'face-frown']" 
+        size="2x" 
+        [fixedWidth]="true" 
+        [ngClass]="{'activo1': trece == 1, 'text-primary': trece != 1}"
+      ></fa-icon>
+      
+    </label>
+  </div>
+
+  <div class="d-flex align-items-center centrar">
+    <input readonly 
+      
+      type="radio" 
+      id="consistent2" 
+      name="consistent" 
+      value="2" 
+      
+    >
+    <label for="consistent2" class="ms-2">
+      <fa-icon 
+        [icon]="['fas', 'face-meh']" 
+        size="2x" 
+        [fixedWidth]="true" 
+        [ngClass]="{'activo2': trece == 2, 'text-primary': trece != 2}"
+      ></fa-icon>
+     
+    </label>
+  </div>
+
+  <div class="d-flex align-items-center centrar">
+    <input readonly 
+      
+      type="radio" 
+      id="consistent3" 
+      name="consistent" 
+      value="3" 
+      
+    >
+    <label for="consistent3" class="ms-2">
+      <fa-icon 
+        [icon]="['fas', 'face-smile']" 
+        size="2x" 
+        [fixedWidth]="true" 
+        [ngClass]="{'activo': trece == 3, 'text-primary': trece != 3}"
+      ></fa-icon>
+     
+    </label>
+  </div>
+</div>
+<h1 [ngClass]="camposFaltantes.includes('trece') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+
+
+
+  <div class="div">
+    <p>Alentador</p>
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+        type="radio" 
+     
+        id="encouraging1" 
+        name="encouraging" 
+        value="1" 
+        
+      >
+      <label for="encouraging1" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-frown']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo1': catorce == 1, 'text-primary': catorce != 1}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="encouraging2" 
+        name="encouraging" 
+        value="2" 
+        
+      >
+      <label for="encouraging2" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-meh']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo2': catorce == 2, 'text-primary': catorce != 2}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="encouraging3" 
+        name="encouraging" 
+        value="3" 
+        
+      >
+      <label for="encouraging3" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-smile']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo': catorce == 3, 'text-primary': catorce != 3}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  </div>
+  <h1 [ngClass]="camposFaltantes.includes('catorce') ? 'alerta' : 'completado'">rellena este campo</h1>
+
+
+
+
+
+
+  <div class="alertap" [ngStyle]="{ 'display': alertap ? 'flex' : 'none' }">
+    <div class="info">
+      <h1>         
+      Registro exitoso
+    </h1>
+    </div>
+    <div class="acep">  <button (click)="aceptar()"> Aceptar</button></div>
+   
+  </div>
+
+
+  <div class="div">
+    <p>Claro</p>
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="clear1" 
+        name="clear" 
+        value="1" 
+        
+      >
+      <label for="clear1" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-frown']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo1': quince == 1, 'text-primary': quince != 1}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="clear2" 
+        name="clear" 
+        value="2" 
+        
+      >
+      <label for="clear2" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-meh']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo2': quince == 2, 'text-primary': quince != 2}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="clear3" 
+        name="clear" 
+        value="3" 
+        
+      >
+      <label for="clear3" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-smile']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo': quince == 3, 'text-primary': quince != 3}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  </div>
+  <h1 [ngClass]="camposFaltantes.includes('quince') ? 'alerta' : 'completado'">rellena este campo</h1>
+  
+  <div class="div">
+    <p>Profesional</p>
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="professional1" 
+        name="professional" 
+        value="1" 
+        
+      >
+      <label for="professional1" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-frown']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo1': dieciseis == 1, 'text-primary': dieciseis != 1}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="professional2" 
+        name="professional" 
+        value="2" 
+        
+      >
+      <label for="professional2" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-meh']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo2': dieciseis == 2, 'text-primary': dieciseis != 2}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="professional3" 
+        name="professional" 
+        value="3" 
+        
+      >
+      <label for="professional3" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-smile']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo': dieciseis == 3, 'text-primary': dieciseis != 3}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+   
+  </div>
+  
+  <h1 [ngClass]="camposFaltantes.includes('dieciseis') ? 'alerta' : 'completado'">rellena este campo</h1>
+  <div class="div">
+    <p>Empático</p>
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="empathetic1" 
+        name="empathetic" 
+        value="1" 
+        
+      >
+      <label for="empathetic1" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-frown']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo1': diecisiete == 1, 'text-primary': diecisiete != 1}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="empathetic2" 
+        name="empathetic" 
+        value="2" 
+        
+      >
+      <label for="empathetic2" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-meh']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo2': diecisiete == 2, 'text-primary': diecisiete != 2}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+  
+    <div class="d-flex align-items-center centrar">
+      <input readonly 
+   
+        type="radio" 
+        id="empathetic3" 
+        name="empathetic" 
+        value="3" 
+        
+      >
+      <label for="empathetic3" class="ms-2">
+        <fa-icon 
+          [icon]="['fas', 'face-smile']" 
+          size="2x" 
+          [fixedWidth]="true" 
+          [ngClass]="{'activo': diecisiete == 3, 'text-primary': diecisiete != 3}"
+        ></fa-icon>
+        <span class="ms-1"></span>
+      </label>
+    </div>
+   
+  </div>
+  <h1 [ngClass]="camposFaltantes.includes('diecisiete') ? 'alerta' : 'completado'">rellena este campo</h1>
+  
+
+
+
+
+
+            </div>
+          </div>
+          
+
+
+
+
+
+
+
+          
+          <div class="campo-puesto dos">
+            <h1>¿El tiempo de espera para concretar la firma fue razonable?</h1>
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                   
+                  name="firma" 
+                  value="1" 
+                  type="radio" 
+                  id="firma1"
+                >
+                <label for="firma1" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-frown']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo1': dieciocho == 1, 'text-primary': dieciocho != 1}"
+                  ></fa-icon>
+                  <span class="ms-1">En desacuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                   
+                  name="firma" 
+                  value="2" 
+                  type="radio" 
+                  id="firmartre2"
+                >
+                <label for="firma2" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-meh']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo2': dieciocho == 2, 'text-primary': dieciocho != 2}"
+                  ></fa-icon>
+                  <span class="ms-1">De acuerdo</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                   
+                  name="firma" 
+                  value="3" 
+                  type="radio" 
+                  id="firma3"
+                >
+                <label for="firma3" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-smile']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo': dieciocho == 3, 'text-primary': dieciocho != 3}"
+                  ></fa-icon>
+                
+                  <span class="ms-1">Totalmente de acuerdo</span>
+                </label>
+              </div>
+             
+            </div>
+            <h1 [ngClass]="camposFaltantes.includes('dieciocho') ? 'alerta' : 'completado'">rellena este campo</h1>
+          </div>
+          
+
+
+          <div class="campo-puesto dos">
+            <h1>¿En general qué tan satisfecho(a) estás con tu proceso de reclutamiento?</h1>
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                   
+                  name="sastifecho" 
+                  value="1" 
+                  type="radio" 
+                  id="sastifecho1"
+                >
+                <label for="sastifecho1" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-frown']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo1': diecinueve == 1, 'text-primary': diecinueve != 1}"
+                  ></fa-icon>
+                  <span class="ms-1">Insatisfecho</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                   
+                  name="sastifecho" 
+                  value="2" 
+                  type="radio" 
+                  id="sastifecho2"
+                >
+                <label for="sastifecho2" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-meh']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo2': diecinueve == 2, 'text-primary': diecinueve != 2}"
+                  ></fa-icon>
+                  <span class="ms-1">Intermedio</span>
+                </label>
+              </div>
+            </div>
+          
+            <div class="intructor">
+              <div class="d-flex align-items-center">
+                <input readonly 
+             
+                   
+                  name="sastifecho" 
+                  value="3" 
+                  type="radio" 
+                  id="sastifecho3"
+                >
+                <label for="sastifecho3" class="ms-2">
+                  <fa-icon 
+                    [icon]="['fas', 'face-smile']" 
+                    size="2x" 
+                    [fixedWidth]="true" 
+                    [ngClass]="{'activo': diecinueve == 3, 'text-primary': diecinueve != 3}"
+                  ></fa-icon>
+                  <span class="ms-1">Satisfecho</span>
+                </label>
+              </div>
+            </div>
+            <h1 [ngClass]="camposFaltantes.includes('diecinueve') ? 'alerta' : 'completado'">rellena este campo</h1>
+          </div>
+        
+        
+
+       
+
+           
+          <div class="campo-puesto dos">
+            <h1>¿Cómo fue la atención del personal que te apoyó con tu firma de contrato?</h1>
+            <div class="caras">
+              <div class="div">
+                <div class="d-flex align-items-center ">
+                  <input readonly  
+               
+                    name="amigable" 
+                    value="1" 
+                    type="radio" 
+                    id="atencion1"
+                  >
+                  <label for="atencion1" class="ms-2">
+                    <fa-icon 
+                      [icon]="['fas', 'face-smile']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo': veinte == 1, 'text-primary': veinte != 1}"
+                    ></fa-icon>
+                    <span class="ms-1">Entendible</span>
+                  </label>
+                </div>
+              </div>
+          
+              <div class="div">
+                <div class="d-flex align-items-center">
+                  <input readonly 
+               
+                     
+                    name="amigable" 
+                    value="2" 
+                    type="radio" 
+                    id="amigable1"
+                  >
+                  <label for="amigable1" class="ms-2 ll">
+                    <fa-icon 
+                      [icon]="['fas', 'face-smile']" 
+                      size="2x" 
+                      [fixedWidth]="true" 
+                      [ngClass]="{'activo2': veinte == 2, 'text-primary': veinte != 2}"
+                    ></fa-icon>
+                    <span class="ms-1">Amigable</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <h1 [ngClass]="camposFaltantes.includes('veinte') ? 'alerta' : 'completado'">rellena este campo</h1>
+          </div>
+          
+        <div class="campo-puesto">
+            <h1>¿Hay algo que podamos mejorar de nuestro proceso de capacitacion?</h1>
+            <input readonly [(ngModel)]="veintiuno" type="text" placeholder="Tu respuesta"   >
+            <h1 [ngClass]="camposFaltantes.includes('veintiuno') ? 'alerta' : 'completado'">rellena este campo</h1>
+        </div>
+
+        <h1>{{total}}</h1>
+        <div class="contenedor-boton">
+   
+          <button (click)="enviar()">Enviar</button>
+        </div>
+
+
+    </div>
+
+
+
+  </div>

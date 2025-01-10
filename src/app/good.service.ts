@@ -6,9 +6,18 @@ import { Observable } from 'rxjs';
 })
 export class GoodService {
   constructor(private http : HttpClient) { }
-url = "http://localhost:4200"
+url = "http://localhost:3100/primerformulario"
 mandar(info : any):Observable<any>{
-return this.http.post("url", {info})
+return this.http.post(this.url, {info})
+}
+
+traer():Observable<any>{
+  return this.http.get("http://localhost:3100/ggg")
+}
+
+
+fecha(info : any):Observable<any>{
+  return this.http.post("http://localhost:3100/fechag",{info})
 }
 
   
