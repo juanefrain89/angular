@@ -19,6 +19,10 @@ traer():Observable<any>{
 fecha(info : any):Observable<any>{
   return this.http.post("http://localhost:3100/fechatres",{info})
 }
+
+traerall():Observable<any>{
+  return this.http.get("http://localhost:3100/getterceroall")
+}
   
   
 }

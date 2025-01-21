@@ -524,7 +524,11 @@ this.total = (this.valor5 +this.valor7+this.valor8 + this.valor9 + this.valor10 
   }
    camposFaltantes: string[] = [];
 
+
+
+
   enviar(): void {
+    let calificacion = this.total
     this.cdr.detectChanges();
 this.total = this.valor5   
     const campos = {
@@ -549,6 +553,7 @@ this.total = this.valor5
       diecinueve: this.diecinueve,
       veinte: this.veinte,
       veintiuno: this.veintiuno,   
+      total:calificacion
     };
   
 

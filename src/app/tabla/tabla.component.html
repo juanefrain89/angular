@@ -1,24 +1,24 @@
 <div class="padre-padre">
 
 
-  <div class="formularios">
-    <button class="formulario1" (click)="abrirModal()">
-      Proceso de seleccion
-    </button>
-    <button class="formulario1" (click)="abrirmodal2()">
-    Proceso reclutamiento
-    </button>
-    <button class="formulario1" (click)="abrirmodal3()">
-      Calificacion personal
-    </button>
-
-
-  </div>
 
     
     
    
     <div class="padre">
+      <div class="formularios">
+        <button class="formulario1" (click)="abrirModal()">
+          Proceso de seleccion
+        </button>
+        <button class="formulario1" (click)="abrirmodal2()">
+        Proceso reclutamiento
+        </button>
+        <button class="formulario1" (click)="abrirmodal3()">
+          Calificacion personal
+        </button>
+    
+    
+      </div>
       <div class="tablas">
         <div class="tt"> 
         <div class="tabla1"> <div (click)="handleactivo(1)" [ngClass]="activo === 1 ? 'bmvactivo' : 'bmv'"><p  [ngClass]="activo === 1 ? 'activo' : 'normal'">Seleccion</p> </div> </div>
@@ -43,16 +43,59 @@
       <div class="inputs">
         <div class="conm">   
       <select [(ngModel)]="binding" name="" id="jgl">
-        <option value="1">Grafica general</option>
-        <option value="2">Mejores instructores</option>
-        <option value="3">Reconmedacion</option>
+        <option value="1">Formulario 1</option>
+        <option value="2">Formulario 2</option>
+        <option value="3">Formulario 3</option>
+        <option value="4">General</option>
       </select>
     
     </div>
-        <input type="date" name="dateRange" min="2020-01-01" max="2025-12-31" placeholder="filtrar por fecha" [(ngModel)]="fecha" (ngModelChange)="handlefecha()"  >
-        <input type="text" placeholder="filtrar por departamento" [(ngModel)]="area" (ngModelChange)="filtraciones($event)">
-        <input type="text" placeholder="filtrar por puesto"  [(ngModel)]="puesto" (ngModelChange)="filtraciones($event)">
+
+    
+    <div *ngIf="binding == 1" class="conm">   
+      <select [(ngModel)]="formulario1ngmodel" name="" id="jgl">
+        <option value="1">Percion del Jefe</option>
+       
+      </select>
+    
     </div>
+    <input *ngIf="binding == 1" type="text" ngxDaterangepickerMd placeholder="filtrar por fecha" [(ngModel)]="selected" [(ngModel)]="fecha" (ngModelChange)="handlefecha()" (ngModelChange)="filtraciones($event)" >
+
+
+    
+    <div *ngIf="binding == 2" class="conm">   
+      <select [(ngModel)]="formulario1ngmodel2" name="" id="jgl">
+        <option value="1">Como se entero del empleo</option>
+        <option value="2">Mejores Cursos</option>
+      
+      </select>
+    
+    </div>
+    <input *ngIf="binding == 2" type="text" ngxDaterangepickerMd placeholder="filtrar por fecha" [(ngModel)]="selected" [(ngModel)]="fecha" (ngModelChange)="handlefecha()" (ngModelChange)="filtraciones($event)" >
+
+    <div *ngIf="binding == 3" class="conm">   
+      <select [(ngModel)]="formulario1ngmodel3" name="" id="jgl">
+        <option value="1">Mejores instructores</option>
+  
+      </select>
+    
+    </div>
+    <input *ngIf="binding == 3" type="text" ngxDaterangepickerMd placeholder="filtrar por fecha" [(ngModel)]="selected" [(ngModel)]="fecha" (ngModelChange)="handlefecha()" (ngModelChange)="filtraciones($event)" >
+
+    <div *ngIf="binding == 4" class="conm">   
+      <select [(ngModel)]="formulario1ngmodel4" name="" id="jgl">
+        <option value="1">Calificaciones generales</option>
+        <option value="2">Total llenado</option>
+       
+      </select>
+    
+    </div>
+
+    <input *ngIf="binding == 4" type="text" ngxDaterangepickerMd placeholder="filtrar por fecha" [(ngModel)]="selected" [(ngModel)]="fecha" (ngModelChange)="handlefecha()" (ngModelChange)="filtraciones($event)" >
+       
+    </div>
+
+    
 
       }
       </div>
@@ -78,7 +121,7 @@
     
     
     @if (activo == 1) {
-        <tr  *ngFor="let persona of all" (click)="abrirrespuestas1(1)" >
+        <tr  *ngFor="let persona of all" (click)="abrirrespuestas1(persona.id)" >
           <td  >
             <div><p>{{ persona.fecha | date: 'MM/dd/yyyy'  }}</p></div>
           </td>
@@ -122,6 +165,19 @@
           <td>
             <div><p>{{ persona.puesto }}</p></div>
           </td>
+  <div class="formularios">
+    <button class="formulario1" (click)="abrirModal()">
+      Proceso de seleccion
+    </button>
+    <button class="formulario1" (click)="abrirmodal2()">
+    Proceso reclutamiento
+    </button>
+    <button class="formulario1" (click)="abrirmodal3()">
+      Calificacion personal
+    </button>
+
+
+  </div>
         </tr>
       }
     </tbody>
@@ -131,20 +187,27 @@
                 
 
               }@else if (activo ==4) {
-                <app-graficas *ngIf="binding == 1"></app-graficas>
-                <app-personal *ngIf="binding == 2"></app-personal>
-                <app-graficarecomendacion *ngIf="binding ==3"></app-graficarecomendacion>
+                @if (binding ==1) {
+                  <app-percepcion [datos]="datosRecibidos2" *ngIf="formulario1ngmodel == 1"></app-percepcion>
+                  <app-personal *ngIf="formulario1ngmodel == 2"></app-personal>
+                }
+                @if (binding == 2) {
+                  <app-graficarecomendacion [datos]="datosRecibidos3" *ngIf="formulario1ngmodel2 ==1"></app-graficarecomendacion>
+                  <app-cursofavorito [datos]="datosRecibidos2_1" *ngIf="formulario1ngmodel2 == 2"></app-cursofavorito>
+                }
+                @if (binding ==3) {
+                 <app-personal *ngIf="formulario1ngmodel3 == 1"></app-personal>
+                
+                }
+                @if (binding == 4) {
+                  <app-graficas *ngIf="formulario1ngmodel4 ==1"></app-graficas>
+                  <app-totalllenado [datos]="datosRecibidos" *ngIf="formulario1ngmodel4 == 2"></app-totalllenado>
+                }
+                
+               
               }
-           
-              
-        
         </div>
-      
-      
-     
     </div>
-
-
     </div>
     <nz-modal
     [(nzVisible)]="isModalVisible"
@@ -196,7 +259,7 @@
     [nzStyle]="{ top: '10px' , width:'70%' }"
   >
     <ng-container *nzModalContent>
-      <app-respuestas1></app-respuestas1>
+      <app-respuestas1  [personaId]="idSeleccionado1"></app-respuestas1>
     </ng-container>
   </nz-modal>
 
@@ -226,7 +289,3 @@
       <app-respuestas3 [personaId]="idSleccionado3"></app-respuestas3>
     </ng-container>
   </nz-modal>
-
-
-  
- 

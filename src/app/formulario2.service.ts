@@ -19,4 +19,8 @@ traer():Observable<any>{
   return this.http.get("http://localhost:3100/getsegundo")
 }
   
+
+traerall():Observable<any>{
+  return this.http.get("http://localhost:3100/getsegundoall")
+}
 }

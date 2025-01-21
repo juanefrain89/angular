@@ -5,11 +5,32 @@ import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 import { faFaceFrown } from '@fortawesome/free-solid-svg-icons';
 import { faFaceMeh } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { Input } from '@angular/core';
+
+interface MiObjeto {
+  id: number;
+  uno: any;
+  dos: any;
+  tres: any;
+  cuatro: any;
+  cinco: any;
+  seis: any;
+  siete: any;
+  ocho: any;
+  nueve: any;
+  diez: any;
+  once: any;
+  doce: any;
+  trece: any;
+  catorce: any;
+  quince: any;
+}
 @Component({
   selector: 'app-respuestas1',
   templateUrl: './respuestas1.component.html',
   styleUrl: './respuestas1.component.scss'
 })
+
 export class Respuestas1Component {
   datos: any[] = [];
   uno: string="hola";
@@ -38,6 +59,7 @@ export class Respuestas1Component {
   }
   camposFaltantes: string[] = [];
   alertap = false
+   @Input() personaId: any;
   aceptar(){
     window.location.reload()
    
@@ -532,35 +554,41 @@ export class Respuestas1Component {
   mandar(){
  
   }
-  
+
   
   ngOnInit(): void {
-    this.servicio.traer().subscribe(
-      (dates) =>{
-        console.log(dates[0].cinco);
-        this.datos.push(...dates)
-        this.uno= dates[0].uno
-        this.dos=dates[0].dos
-        this.tres=dates[0].tres
-        this.cuatro=dates[0].cuatro
-        this.cinco=dates[0].cinco
-        this.seis=dates[0].seis
-        this.siete=dates[0].siete 
-        this.ocho=dates[0].ocho 
-        this.nueve=dates[0].nueve 
-        this.diez=dates[0].diez 
-        this.once=dates[0].once
-        this.doce=dates[0].doce
-        this.trece=dates[0].trece
-        this.catorce=dates[0].catorce
-        this.quince=dates[0].quince
-        
+    const id = this.personaId;
+    this.servicio.traertodo().subscribe(
+      (dates: MiObjeto[]) => {
+        console.log(dates)
+        console.log(id)
+        const objetoEncontrado = dates.find((item: MiObjeto) => item.id == id);
+  
+        if (objetoEncontrado) {
+          this.datos.push(...dates)
+          this.uno = objetoEncontrado.uno;
+          this.dos = objetoEncontrado.dos;
+          this.tres = objetoEncontrado.tres;
+          this.cuatro = objetoEncontrado.cuatro;
+          this.cinco = objetoEncontrado.cinco;
+          this.seis = objetoEncontrado.seis;
+          this.siete = objetoEncontrado.siete;
+          this.ocho = objetoEncontrado.ocho;
+          this.nueve = objetoEncontrado.nueve;
+          this.diez = objetoEncontrado.diez;
+          this.once = objetoEncontrado.once;
+          this.doce = objetoEncontrado.doce;
+          this.trece = objetoEncontrado.trece;
+          this.catorce = objetoEncontrado.catorce;
+          this.quince = objetoEncontrado.quince;
+        } else {
+          console.log('No se encontró un objeto con el id proporcionado');
+        }
       },
-      (error)=>{
+      (error) => {
         console.log(error);
-        
       }
-    )
+    );
     
     
   }

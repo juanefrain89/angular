@@ -84,9 +84,9 @@ export class Respuestas3Component {
   }
    total = 0
    valor5 = 0
-valor7 = 0
-valor8 = 0
-valor9 =0
+   valor7 = 0
+   valor8 = 0
+   valor9 =0
 valor10=0
 valor11=0
 valor12=0
@@ -546,7 +546,7 @@ this.total = (this.valor5 +this.valor7+this.valor8 + this.valor9 + this.valor10 
       email: ['', [Validators.required, Validators.email]], 
       mensaje: ['', [Validators.required, Validators.minLength(10)]], 
     });
-    this.servicio.traer().subscribe(
+    this.servicio.traerall().subscribe(
       (dates: MiObjeto[]) => {
         const objetoEncontrado = dates.find((item: MiObjeto) => item.id === this.personaId);
   

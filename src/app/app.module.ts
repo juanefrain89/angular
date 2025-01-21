@@ -34,6 +34,9 @@ import { NgChartsModule } from 'ng2-charts';
 import { PersonalComponent } from './personal/personal.component'; 
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { GraficarecomendacionComponent } from './graficarecomendacion/graficarecomendacion.component';
+import { PercepcionComponent } from './graficasgenerales/formulario1/percepcion/percepcion.component';
+import { CursofavoritoComponent } from './graficasgenerales/formulario2/cursofavorito/cursofavorito.component';
+import { TotalllenadoComponent } from './graficasgenerales/general/totalllenado/totalllenado.component';
 
 registerLocaleData(nl);
 @NgModule({
@@ -53,6 +56,9 @@ registerLocaleData(nl);
     GraficasComponent,
     PersonalComponent,
     GraficarecomendacionComponent,
+    PercepcionComponent,
+    CursofavoritoComponent,
+    TotalllenadoComponent,
     
   ],
   imports: [

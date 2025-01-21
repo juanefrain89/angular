@@ -152,6 +152,67 @@ td{
     background-color: rgb(250, 250, 250);
 }
 
+.opciones
+{
+    width: 100%;
+    display: flex;
+    padding: 0 20px 0 20px;
+    cursor: pointer;
+}
+
+.none{
+    display: none;
+}
+
+.rel{
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    width: 230px;
+    position: absolute;
+  margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+   
+}
+
+.relitem > p{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+select:focus {
+    outline: none; 
+    border: 1px solid #ccc; 
+}
+
+
+.relitem > p:hover{
+    color: #1677ff;
+}
+
+.opcionesitem{
+    margin-right: 30px;
+    transition: 1s all ease;
+    color: #666;
+    text-align: center; 
+    width: 200px;
+    height: 50px;
+    
+}
+
+.opcionesitem:hover{
+    background-color: #2ff6ec;
+
+}
+
+.opcionesitem > p{
+    font-size: 23px;
+    font-style: italic;
+}
+
 .next{
     width: 100px;
     height: 30px;
@@ -253,11 +314,15 @@ td > div > p{
     cursor: pointer;
 }
 
-
+.conm{
+    margin-right: 30px;
+}
 
 .bmvactivo{
 background-color: gainsboro;
 }
+
+
 
 
 .inputs{
