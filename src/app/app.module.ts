@@ -35,9 +35,15 @@ import { NgChartsModule } from 'ng2-charts';
 import { PersonalComponent } from './personal/personal.component'; 
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { GraficarecomendacionComponent } from './graficarecomendacion/graficarecomendacion.component';
+<<<<<<< HEAD
 import { OrgComponent } from './org/org.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
+=======
+import { PercepcionComponent } from './graficasgenerales/formulario1/percepcion/percepcion.component';
+import { CursofavoritoComponent } from './graficasgenerales/formulario2/cursofavorito/cursofavorito.component';
+import { TotalllenadoComponent } from './graficasgenerales/general/totalllenado/totalllenado.component';
+>>>>>>> 830ba07a9851d1995d5e08376aeca7254f036464
 
 registerLocaleData(nl);
 @NgModule({
@@ -57,10 +63,16 @@ registerLocaleData(nl);
     GraficasComponent,
     PersonalComponent,
     GraficarecomendacionComponent,
+<<<<<<< HEAD
     OrgComponent,
     InicioComponent,
     EmpleadosComponent,
     
+=======
+    PercepcionComponent,
+    CursofavoritoComponent,
+    TotalllenadoComponent,
+>>>>>>> 830ba07a9851d1995d5e08376aeca7254f036464
     
   ],
   imports: [

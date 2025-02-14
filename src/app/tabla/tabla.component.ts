@@ -37,6 +37,17 @@ handlesubmenu(event: MouseEvent){
 constructor(private controller: Router,private servcio1: GoodService, private servicio2: Formulario2Service, private servicio3 : Formulario3Service, private servicio4: GraficasService){
 
 }
+
+formulario1ngmodel =1
+formulario1ngmodel2=1
+formulario1ngmodel3=1
+formulario1ngmodel4=1
+
+submenu = false
+
+handlesubmenu(){
+  this.submenu = !this.submenu
+}
 selected : any
 personas: Persona[] = [];
 
@@ -119,16 +130,19 @@ fecha: any =""
 formulario = 0
 isModalVisible = false; 
 modal2 = false
-respuestas1 = false
+respuestas1 = false 
 respuestas2 = false
 respuestas3= false
 modal3 = false
 dia : any=""
-
+datosRecibidos2_1 : any =null
 idSeleccionado2: any
+idSeleccionado1 : any
 idSleccionado3:any
 selectedOption: string = '';
-
+datosRecibidos: any = null;
+datosRecibidos2: any = null
+datosRecibidos3 : any = null
 handlefecha(){
   if (this.activo == 1) {
     console.log(" entro al servicio 1 ");
@@ -204,12 +218,87 @@ fin :this.selected.endDate.format('YYYY-MM-DD')
   });
 
 }
+
+
+
+
+if(this.activo ==4){
+  let datos={
+    inicio : this.selected.startDate.format('YYYY-MM-DD'),
+    fin :this.selected.endDate.format('YYYY-MM-DD')
+      }
+      if (this.binding == 4) {
+        if(this.formulario1ngmodel4 == 2){
+          this.servicio4.fechacalificaciones(datos).subscribe(
+            (dates)=>{
+            
+              this.datosRecibidos = dates;
+            },
+            (error)=>{
+              console.log(error);
+              
+            }
+          )
+      }
+      }
+  
+if (this.binding == 1) {
+  if (this.formulario1ngmodel == 1) {
+    this.servicio4.fechaperceion(datos).subscribe(
+      (dates)=>{
+      console.log(dates);
+      
+        this.datosRecibidos2 = dates;
+      },
+      (error)=>{
+        console.log(error);
+        
+      }
+    )
+  }
+  
+}
+
+if (this.binding ==2) {
+  if (this.formulario1ngmodel2 ==   1) {
+    this.servicio4.fecharecomendacion(datos).subscribe(
+      (dates)=>{
+   
+        this.datosRecibidos3 = dates;
+      },
+      (error)=>{
+        console.log(error);
+        
+      }
+    )
+
+    
+  }
+  if (this.formulario1ngmodel2 ==2) {
+    this.servicio4.fechacursofavorito(datos).subscribe(
+      (datesa)=>{
+        this.datosRecibidos2_1 = datesa
+      },
+      (er)=>{
+        console.log(er);
+        
+      }
+    )
+    
+  }
+  
+}
+  
+}
+
+
+
   
 }
 
 abrirrespuestas1(id: number):void{
   console.log(id);
-  
+  this.idSeleccionado1 = id
   this.respuestas1 = true
 }
 

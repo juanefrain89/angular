@@ -66,7 +66,7 @@ constructor(private servicio: Formulario2Service,
       ocho: this.ocho,
       nueve: this.nueve,
       diez:this.diez,
-     
+     total: this.total
     }
   
     

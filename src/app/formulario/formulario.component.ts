@@ -75,6 +75,7 @@ enviar(): void {
     trece: this.trece,
     catorce: this.catorce,
     quince: this.quince,
+    total : this.total
    
   }
 
@@ -96,7 +97,7 @@ this.camposFaltantes=[]
   } else {
     console.log('Bien');
     console.log(campos);
-
+    
     this.servicio.mandar(campos).subscribe(
       (datos) => {
         this.alertap = true

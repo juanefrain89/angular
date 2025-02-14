@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+
+import { Component, Input, OnInit, ViewChild, SimpleChanges, viewChild } from '@angular/core';
 import { ChartType, ChartEvent, ChartConfiguration, ChartData } from 'chart.js';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { ChartOptions } from 'chart.js';
@@ -12,9 +13,27 @@ import { GraficasService } from '../graficas.service';
 })
 export class GraficarecomendacionComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-  @Input() horizontal: boolean = false;
+  @Input() horizontal: boolean = false; 
+   @Input() datos: any;
+
   @Input() barChartData!: ChartData<'bar'>;
 @Input() var : any
+
+
+
+
+
+ngOnChanges(changes: SimpleChanges) {
+  if (changes['datos'] && this.datos) {
+console.log(this.datos);
+
+
+
+    this.grafi(this.datos); 
+  }
+}
+
+
   constructor(private servicio4 : GraficasService) {}
   valor: any =2
   ngOnInit(): void {

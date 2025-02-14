@@ -312,7 +312,7 @@ mandar(){
 ngOnInit(): void {
   const id = this.personaId;
 
-  this.servicio.traer().subscribe(
+  this.servicio.traerall().subscribe(
     (dates: MiObjeto[]) => {
       const objetoEncontrado = dates.find((item: MiObjeto) => item.id === id);
 
