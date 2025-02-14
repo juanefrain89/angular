@@ -4,6 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-width: 3000px;
     background-color: #f4f4f9;
     margin: 0;
   }
@@ -80,4 +81,7 @@ body {
   .hijos > .hijo:first-child::before {
     content: none; /* La conexión solo se aplica si hay un nivel superior */
   }
+  
+
+
   

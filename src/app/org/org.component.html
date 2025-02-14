@@ -1,0 +1,84 @@
+<angular-org-chart [nodeTemplate]="nodeTemplate" [data]="tree" #exampleChart="orgChart">
+</angular-org-chart>
+<ng-template #nodeTemplate let-node > 
+    <div *ngIf="node.h < 2" class="superior2 first">
+        <div class="header"><h1 class="name-empresa">TLEA</h1></div>
+        <div class="container1 containercenter">
+            <img 
+                *ngIf="node?.h == 0" 
+                src="../../assets/LOGOTLEA.jpg" 
+                alt="Imagen del empleado"
+                class="logo"
+            >
+            <div class="superior-izquierda">
+                <h1 class="h1">{{node?.description}}</h1>      
+            </div> 
+            <div class="superior-derecha2" [ngStyle]="{'padding-bottom': node.h < 1 ? '30px' : '10px'}">
+                <p class="nn" *ngIf="node?.empleado">{{ node?.empleado?.nombre }}</p>
+                <p class="nnn" *ngIf="node?.empleado">{{ node?.empleado?.numero_empleado }}</p>
+                <button    class="final" [ngStyle]="{'height' : node.h < 1? '40px':'100%'}" 
+                       (click)="loadChildren(node.hierarchyId)">
+                    <div class="container2" (click)="seleccionarNodo($event)">
+                        <fa-icon class="elemto2" [icon]="faArrowDown"></fa-icon>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+<div class="items"> 
+<div class="hijos"></div>
+</div>
+    <div  class="superior"   *ngIf="node?.h >= 2"  (click)="onNodeClick(node.hierarchyId, node.nombre, node.image, node.empleado.fecha_ingreso, node.empleado.curp, node.empleado.fecha_nacimiento,  node.empleado.apellido_paterno,  node.empleado.apellido_materno, node.departamento, node.empleado.numero_empleado, node.description, node.empleado.nss)"  >
+            <div class="header"><h1 class="name-empresa">{{node?.departamento}}</h1></div>
+            <div class="superior-izquierda">
+                <img                 
+  *ngIf="node?.h >= 2" 
+  [src]="node?.image" 
+  (error)="setDefaultImage($event)" 
+  alt="Imagen del empleado"
+>
+            </div> 
+            <div class="superior-derecha" >
+            <h1 class="h1">{{node?.description}}</h1>
+            <p class="nn" *ngIf="node?.empleado">{{node.empleado.nombre}}  {{ node?.empleado?.apellido_paterno }}</p>
+                  <button   class="final" (click)="cambiar( node.empleado.numero_empleado)" (click)="loadChildren(node.hierarchyId)"><div class="container2"  [ngStyle]="{'display': node.display ? 'block' : 'none'}" (click)="seleccionarNodo($event)"  ><fa-icon class="elemto2" [icon]="faArrowDown"></fa-icon></div></button>
+            </div>
+        </div>
+        <div class="items"> 
+        <div class="hijos"></div>              
+               </div>
+               <div    [ngClass]="ver == false? 'nomostrar' : 'cubrir-pantalla'">               
+                <button class="quitar" (click)="quitar()">X</button>
+            </div>
+               <div class="superior3 tres"                         [ngClass]="{'show': node.hierarchyId === selectedNodeId}" >
+                <div class="header "><h1 class="n" >{{departamento}}</h1>               
+                </div>
+                <div class="superior-izquierda2 above">
+                    <img class="imagen3" [src]="imagen2" alt="" (error)="setDefaultImage($event)">
+                    <h1 class="h1 h1dos">{{des}}</h1>
+                </div>
+                <div class="superior-derecha2 derecha2" id="derecha3">
+                   <div class="kk"> 
+                    <div class="title">
+                        <h1 class="title">Fecha de nacimiento:</h1>
+                        <p class="subtitle">{{nacimiento}}</p>
+                       </div> 
+                       <div>
+                        <h1 class="title">Fecha de ingreso:</h1><p class="subtitle">{{fecha_ingreso}}</p> 
+                    </div>
+                       <div>
+                        <h1 class="title">Puesto:</h1>
+                        <p class="subtitle">{{puesto}}</p>
+                       </div>
+                   <div> 
+                    <h1 class="title" >Numero empleado:</h1>
+            <p class="subtitle">{{numeroempleado}} </p>
+        </div>
+        <div>
+            <h1 class="title">Nss:</h1>
+            <p class="subtitle">{{nss}}</p>
+        </div>
+                </div>      
+                </div>
+            </div>
+</ng-template>

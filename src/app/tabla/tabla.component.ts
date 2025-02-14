@@ -26,7 +26,14 @@ export class TablaComponent {
   puesto: string =""
   area: string = ""
   
- 
+ submenu = false
+
+handlesubmenu(event: MouseEvent){
+  event.preventDefault(); 
+
+  this.submenu = true
+}
+
 constructor(private controller: Router,private servcio1: GoodService, private servicio2: Formulario2Service, private servicio3 : Formulario3Service, private servicio4: GraficasService){
 
 }

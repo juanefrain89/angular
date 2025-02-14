@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OrganigramaComponent } from './organigrama/organigrama.component';
 import { FormularioComponent } from './formulario/formulario.component';
@@ -9,15 +9,18 @@ import { EjemploComponent } from './ejemplo/ejemplo.component';
 import { Respuestas1Component } from './respuestas1/respuestas1.component';
 import { Respuestas2Component } from './respuestas2/respuestas2.component';
 import { Respuestas3Component } from './respuestas3/respuestas3.component';
+import { OrgComponent } from './org/org.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
 
 const routes: Routes = [
   {
     path:"formulario",
-    component:FormularioComponent
+    component:InicioComponent
   },
   {
     path:"",
-    component:OrganigramaComponent
+    component:EmpleadosComponent
   },{
     path:"formulario2",
     component: Formulario2Component
@@ -33,6 +36,10 @@ const routes: Routes = [
     path:`usuarios/:id`,
     component :Respuestas1Component
   },
+  {
+    path:"usuarios",
+  component : EmpleadosComponent
+  }
  
   
 ];

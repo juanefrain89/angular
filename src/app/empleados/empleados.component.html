@@ -1,0 +1,35 @@
+<div class="table-container">
+  <nz-table
+    [nzData]="listOfData"
+    [nzBordered]="true"
+    [nzPageSize]="pageSize"
+    [nzTotal]="total"
+    (nzQueryParams)="onQueryParamsChange($event)"
+    nzShowSizeChanger
+    nzShowQuickJumper
+    [nzShowTotal]="null" 
+  >
+    <thead>
+      <tr>
+        <th nzColumnKey="nEmpleado" nzWidth="15%">n.Empleado</th>
+        <th nzColumnKey="nombre" nzWidth="25%">Nombre</th>
+        <th nzColumnKey="status" nzWidth="15%">Status</th>
+        <th nzColumnKey="fechaInicio" nzWidth="20%">Fecha Inicio</th>
+        <th nzColumnKey="fechaFin" nzWidth="20%">Fecha Fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of listOfData">
+        <td>{{ data.nEmpleado }}</td>
+        <td>{{ data.nombre }}</td>
+        <td>
+          <nz-tag [nzColor]="data.status === 'Realizado' ? 'green' : 'volcano'">
+            {{ data.status }}
+          </nz-tag>
+        </td>
+        <td>{{ data.fechaInicio }}</td>
+        <td>{{ data.fechaFin }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

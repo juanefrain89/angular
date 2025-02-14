@@ -83,22 +83,17 @@ if (pregunta == "cinco") {
       case "1":
         this.valor5=this.desacuerdo
         console.log(pregunta);
-        
         break
-        
       case "2":
         this.valor5=this.acuerdo
         console.log("selec");
-        
         break
-
         case "3":
           this.valor5= this.totalmente_acuerdo
           break
         case "4":
           this.valor5=1
           console.log("kdkdkdk");
-          
           break
       
     }
@@ -121,35 +116,27 @@ if (pregunta == "cinco") {
           break
         case "4":
           this.valor7=1
-          console.log("kdkdkdk");
-          
           break
       
     }
-
   }
 
   else if(pregunta == "ocho"){
     switch (nuevaOpcion) {
       case "1":
         this.valor8=this.desacuerdo
-        console.log(pregunta);
-        
+        console.log(pregunta);   
         break
-        
       case "2":
         this.valor8=this.acuerdo
         console.log("selec");
-        
         break
-
         case "3":
           this.valor8=this.totalmente_acuerdo
           break
         case "4":
           this.valor8=1
           console.log("kdkdkdk");
-          
           break
       
     }

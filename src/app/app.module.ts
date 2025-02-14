@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NzModalModule } from 'ng-zorro-antd/modal'; // Agregar el módulo de modal de NG-ZORRO
 import { NzTableModule } from 'ng-zorro-antd/table';
-
+import { OrgChartModule } from 'angular13-organization-chart';
+import { NzTagModule } from 'ng-zorro-antd/tag'
 import { ReactiveFormsModule } from '@angular/forms';
 import { EjemploComponent } from './ejemplo/ejemplo.component';
 import { DosComponent } from './dos/dos.component';
@@ -34,11 +35,14 @@ import { NgChartsModule } from 'ng2-charts';
 import { PersonalComponent } from './personal/personal.component'; 
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { GraficarecomendacionComponent } from './graficarecomendacion/graficarecomendacion.component';
+import { OrgComponent } from './org/org.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
 
 registerLocaleData(nl);
 @NgModule({
   declarations: [
-  
+  OrgComponent,
     AppComponent,
     EjemploComponent,
     DosComponent,
@@ -53,11 +57,16 @@ registerLocaleData(nl);
     GraficasComponent,
     PersonalComponent,
     GraficarecomendacionComponent,
+    OrgComponent,
+    InicioComponent,
+    EmpleadosComponent,
+    
     
   ],
   imports: [
     NgxDaterangepickerMd.forRoot(),
     NgChartsModule,
+    NzTagModule,
     NzModalModule,
     NzTableModule,
     BrowserAnimationsModule,
@@ -70,7 +79,7 @@ registerLocaleData(nl);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+    OrgChartModule,
   ],
   providers: [
     provideClientHydration(),

@@ -56,10 +56,13 @@ export class OrganigramaComponent implements OnInit {
     if (container) {
       const data = { nodes, edges };
       const options = {
+
         layout: {
           hierarchical: {
             direction: 'UD',
-            sortMethod: 'directed'
+            sortMethod: 'directed',
+            width: '4000px',
+    height: '900px'
           }
         },
         interaction: {
@@ -144,11 +147,16 @@ export class OrganigramaComponent implements OnInit {
       nodes.update({ id: nodeId+1, hidden: false });
       nodes.update({ id: 3, hidden: false });
     } else if (nodeId === 2) {
-      nodes.update({ id: 5, hidden: false }); // Mostrar hijo de nodo 2
+      nodes.update({ id: 5, hidden: false }); 
     } else if (nodeId === 3) {
       nodes.update({ id: 6, hidden: false }); // Mostrar hijo de nodo 3
     }
   }
+
+   options = {
+    width: '400px',
+    height: '400px'
+  };
 
   actualizar(): void {
     console.log('Actualización realizada');
